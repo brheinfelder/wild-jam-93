@@ -3,11 +3,14 @@ extends Sprite2D
 @onready var tex_width = texture.get_width()
 @onready var cam: Camera2D = $"../../van/Camera2D"
 @onready var signPos = global_position
+@onready var canvas_modulate: CanvasModulate = $"../../CanvasModulate"
+var lightDistance: float = 100.0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var camPos = cam.get_screen_center_position()
 	var viewSize = get_viewport().get_visible_rect().size/cam.zoom
 	global_position = clampVector(camPos, signPos, viewSize - Vector2(tex_width,tex_height))
+	updateBrightness(signPos)
 	return
 	
 func clampVector(camera_pos: Vector2, world_pos: Vector2, view_size: Vector2) -> Vector2:
@@ -23,3 +26,13 @@ func clampVector(camera_pos: Vector2, world_pos: Vector2, view_size: Vector2) ->
 		t = minf(t, half_view.y/abs(direction.y))
 		
 	return camera_pos + direction*t
+	
+func updateBrightness(world_pos: Vector2) -> void:
+	var distance = (world_pos - global_position).length()
+	var progress = clampf(distance/lightDistance,0.0,1.0)
+	var brightness = smoothstep(1.0,0.0,progress)
+	var night_color := canvas_modulate.color
+	var inverse := Color(1.0 / night_color.r, 1.0 / night_color.g, 1.0 / night_color.b)
+	modulate = inverse.lerp(Color.WHITE, brightness)
+	
+	pass

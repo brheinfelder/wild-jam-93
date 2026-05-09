@@ -12,15 +12,22 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxso2"]
+radius = 1666.6667
+
 [node name="Node2D" type="Node2D" unique_id=608593549]
 script = ExtResource("1_pxso2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1838271887]
+visible = false
 texture = SubResource("GradientTexture2D_tcwo0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=705805487]
-visible = false
 z_index = -1
-position = Vector2(0, -400)
 scale = Vector2(0.003, 0.003)
 texture = ExtResource("1_tcwo0")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=721150464 groups=["pickup"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1313751623]
+shape = SubResource("CircleShape2D_pxso2")

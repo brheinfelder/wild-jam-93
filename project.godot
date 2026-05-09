@@ -15,6 +15,20 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+gameStateManager="*uid://cj4idph34tc76"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
+[global_group]
+
+pickup=""
+
 [input]
 
 move_left={

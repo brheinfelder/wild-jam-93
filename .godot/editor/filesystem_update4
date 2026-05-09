@@ -10,3 +10,11 @@ res://scenes/meteor.tscn
 res://scripts/meteor.gd
 res://scripts/van.gd
 res://scripts/meteor_type.gd
+res://scripts/meteor_spawner.gd
+res://scripts/map.gd
+res://scenes/ui.tscn
+res://scripts/inventory.gd
+res://scripts/inventoryResource.gd
+res://scripts/ui/inventory.gd
+res://scripts/game_state_manager.gd
+res://scripts/pickup_manager.gd

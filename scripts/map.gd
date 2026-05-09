@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	var cam_tile := Vector2(floor(camera.global_position.x/TILESIZEX),floor(camera.global_position.y/TILESIZEY))
+	var cam_tile := Vector2(floor(camera.get_screen_center_position().x/TILESIZEX),floor(camera.get_screen_center_position().y/TILESIZEY))
 	if cam_tile != last_cam_tile:
 		last_cam_tile = cam_tile
 		map.global_position = Vector2(cam_tile.x*TILESIZEX,cam_tile.y*TILESIZEY)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bbkq7owa62fj3" path="res://scripts/van.gd" id="1_pyp5x"]
 [ext_resource type="Texture2D" uid="uid://bjwsy3al3tqmc" path="res://assets/sprites/pickup_truck-Sheet.png" id="2_pyp5x"]
+[ext_resource type="Script" uid="uid://b5il3nxksdfbo" path="res://scripts/pickup_manager.gd" id="3_5df7p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5df7p"]
 atlas = ExtResource("2_pyp5x")
@@ -54,7 +55,10 @@ fill_from = Vector2(0.49565217, 0.49130434)
 fill_to = Vector2(1, 0.49130434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ax43"]
-size = Vector2(28, 18)
+size = Vector2(56, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyp5x"]
+radius = 57.0
 
 [node name="van" type="CharacterBody2D" unique_id=533248417]
 script = ExtResource("1_pyp5x")
@@ -63,15 +67,23 @@ script = ExtResource("1_pyp5x")
 sprite_frames = SubResource("SpriteFrames_ubcua")
 animation = &"truck"
 autoplay = "truck"
-frame_progress = 0.7339581
+frame_progress = 0.096531734
 
 [node name="PointLight2D" type="PointLight2D" parent="sprite" unique_id=2055114840]
-position = Vector2(15, 0)
+position = Vector2(-31, 5)
 color = Color(0.73100835, 0.55703956, 0.34125328, 1)
 energy = 0.2
 texture = SubResource("GradientTexture2D_5df7p")
 texture_scale = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=679908274]
-position = Vector2(0, 1)
+[node name="Area2D" type="Area2D" parent="." unique_id=1468347983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=679908274 groups=["player"]]
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_1ax43")
+
+[node name="PickupManager" type="Area2D" parent="." unique_id=1029572718]
+script = ExtResource("3_5df7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupManager" unique_id=2058668745]
+shape = SubResource("CircleShape2D_pyp5x")
