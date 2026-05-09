@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://n5kdsr3w67t6"]
+
+[ext_resource type="Texture2D" uid="uid://c3nfum6wau21c" path="res://assets/sprites/walmart.png" id="1_lx5au"]
+[ext_resource type="Texture2D" uid="uid://c178dh2tljxxw" path="res://assets/sprites/shop.png" id="2_xfvoa"]
+[ext_resource type="Script" uid="uid://dxyem2gkcxiwh" path="res://scripts/sign.gd" id="3_1l46r"]
+
+[node name="Shop" type="Node2D" unique_id=1197413404]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=289732895]
+scale = Vector2(0.06539505, 0.065395094)
+texture = ExtResource("1_lx5au")
+
+[node name="sign" type="Sprite2D" parent="." unique_id=1927659930]
+position = Vector2(61, -20)
+texture = ExtResource("2_xfvoa")
+script = ExtResource("3_1l46r")

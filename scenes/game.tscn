@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cicnsm8k4sqmc"]
+
+[ext_resource type="PackedScene" uid="uid://c1qwhhkm41r8y" path="res://scenes/van.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://tj526ajrvd0n" path="res://scenes/map.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://n5kdsr3w67t6" path="res://scenes/shop.tscn" id="4_lbhrr"]
+
+[node name="Game" type="Node2D" unique_id=1123987747]
+
+[node name="Map" parent="." unique_id=48299148 instance=ExtResource("1_yqjtg")]
+
+[node name="van" parent="." unique_id=533248417 instance=ExtResource("1_uwrxv")]
+
+[node name="Camera2D" type="Camera2D" parent="van" unique_id=633105607]
+zoom = Vector2(3, 3)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=325052451]
+visible = false
+position = Vector2(2, 0)
+color = Color(0.08163542, 0.14968315, 0.32229036, 1)
+
+[node name="Shop" parent="." unique_id=1197413404 instance=ExtResource("4_lbhrr")]
+position = Vector2(-80, -24)

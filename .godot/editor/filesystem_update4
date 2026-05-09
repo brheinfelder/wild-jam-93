@@ -1,0 +1,7 @@
+res://scenes/game.tscn
+res://assets/lighting/atmosphere.tres
+res://scenes/atmosphere.gd
+res://scenes/shop.tscn
+res://scenes/map.tscn
+res://scripts/atmosphere.gd
+res://scripts/sign.gd
