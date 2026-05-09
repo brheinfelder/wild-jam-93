@@ -1,5 +1,7 @@
 Sprite2D
 PointLight2D
+Label
+CanvasLayer
 DirectionalLight2D
 CanvasModulate
 Area2D
@@ -10,4 +12,3 @@ Camera2D
 AnimatedSprite2D
 CharacterBody2D
 Node3D
-MeshInstance3D

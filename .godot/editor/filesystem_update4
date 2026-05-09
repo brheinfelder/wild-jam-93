@@ -5,3 +5,8 @@ res://scenes/shop.tscn
 res://scenes/map.tscn
 res://scripts/atmosphere.gd
 res://scripts/sign.gd
+res://scenes/van.tscn
+res://scenes/meteor.tscn
+res://scripts/meteor.gd
+res://scripts/van.gd
+res://scripts/meteor_type.gd

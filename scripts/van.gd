@@ -22,10 +22,10 @@ func _physics_process(delta: float) -> void:
 	
 	var speed_fraction = velocity.length()/SPEED
 	sprite.speed_scale = lerp(1, 3, speed_fraction)
-	if velocity.x<0:
+	if velocity.x>0:
 		#sprite.flip_h = true
 		sprite.scale = Vector2(-abs(scale.x), scale.y)
-	elif velocity.x>0:
+	elif velocity.x<0:
 		sprite.scale = Vector2(abs(scale.x), scale.y)
 		#sprite.flip_h = false
 		

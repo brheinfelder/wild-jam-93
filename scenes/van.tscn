@@ -1,28 +1,42 @@
 [gd_scene format=3 uid="uid://c1qwhhkm41r8y"]
 
-[ext_resource type="Texture2D" uid="uid://23h1ct73jiuo" path="res://assets/sprites/van.png" id="1_6cji5"]
 [ext_resource type="Script" uid="uid://bbkq7owa62fj3" path="res://scripts/van.gd" id="1_pyp5x"]
+[ext_resource type="Texture2D" uid="uid://bjwsy3al3tqmc" path="res://assets/sprites/pickup_truck-Sheet.png" id="2_pyp5x"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8opdr"]
-atlas = ExtResource("1_6cji5")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5df7p"]
+atlas = ExtResource("2_pyp5x")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lvfqf"]
-atlas = ExtResource("1_6cji5")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_41kux"]
+atlas = ExtResource("2_pyp5x")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73gqn"]
+atlas = ExtResource("2_pyp5x")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewbuq"]
+atlas = ExtResource("2_pyp5x")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ubcua"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8opdr")
+"texture": SubResource("AtlasTexture_5df7p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lvfqf")
+"texture": SubResource("AtlasTexture_41kux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73gqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewbuq")
 }],
 "loop": true,
-"name": &"bounce",
-"speed": 3.0
+"name": &"truck",
+"speed": 5.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_pyp5x"]
@@ -47,9 +61,9 @@ script = ExtResource("1_pyp5x")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=140449697]
 sprite_frames = SubResource("SpriteFrames_ubcua")
-animation = &"bounce"
-autoplay = "bounce"
-frame_progress = 0.8010376
+animation = &"truck"
+autoplay = "truck"
+frame_progress = 0.7339581
 
 [node name="PointLight2D" type="PointLight2D" parent="sprite" unique_id=2055114840]
 position = Vector2(15, 0)

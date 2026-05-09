@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://5ny4hbsev4mu"]
+
+[ext_resource type="Script" uid="uid://wep8xql2egdw" path="res://scripts/meteor.gd" id="1_pxso2"]
+[ext_resource type="Texture2D" uid="uid://dw8nmi72jkjdj" path="res://assets/sprites/meteor.png" id="1_tcwo0"]
+
+[sub_resource type="Gradient" id="Gradient_fitd0"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tcwo0"]
+gradient = SubResource("Gradient_fitd0")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Node2D" type="Node2D" unique_id=608593549]
+script = ExtResource("1_pxso2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1838271887]
+texture = SubResource("GradientTexture2D_tcwo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=705805487]
+visible = false
+z_index = -1
+position = Vector2(0, -400)
+scale = Vector2(0.003, 0.003)
+texture = ExtResource("1_tcwo0")

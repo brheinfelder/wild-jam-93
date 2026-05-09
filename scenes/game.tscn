@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://c1qwhhkm41r8y" path="res://scenes/van.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://tj526ajrvd0n" path="res://scenes/map.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://5ny4hbsev4mu" path="res://scenes/meteor.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://n5kdsr3w67t6" path="res://scenes/shop.tscn" id="4_lbhrr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lnu2h"]
+font_size = 48
 
 [node name="Game" type="Node2D" unique_id=1123987747]
 
@@ -17,9 +21,20 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=325052451]
-visible = false
 position = Vector2(2, 0)
 color = Color(0.08163542, 0.14968315, 0.32229036, 1)
 
 [node name="Shop" parent="." unique_id=1197413404 instance=ExtResource("4_lbhrr")]
 position = Vector2(-80, -24)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=744634668]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=237151594]
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 62.0
+offset_bottom = 34.0
+text = "Budget: 0"
+label_settings = SubResource("LabelSettings_lnu2h")
+
+[node name="Node2D" parent="." unique_id=608593549 instance=ExtResource("4_iywne")]
