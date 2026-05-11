@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="inventoryResource" format=3 uid="uid://dw7s4cshy6cd0"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_rtxk8"]
+[ext_resource type="Texture2D" uid="uid://dw8nmi72jkjdj" path="res://assets/sprites/meteor.png" id="1_s4lmc"]
+
+[resource]
+script = ExtResource("1_rtxk8")
+qualityString = "LowGreen"
+icon = ExtResource("1_s4lmc")
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"

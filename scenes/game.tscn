@@ -3,8 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c1qwhhkm41r8y" path="res://scenes/van.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://tj526ajrvd0n" path="res://scenes/map.tscn" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://c6ylahyvufgjs" path="res://scripts/meteor_spawner.gd" id="3_iywne"]
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://5ny4hbsev4mu" path="res://scenes/meteor.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://n5kdsr3w67t6" path="res://scenes/shop.tscn" id="4_lbhrr"]
+[ext_resource type="Resource" uid="uid://dw7s4cshy6cd0" path="res://resources/inventoryResources/test_meteor.tres" id="5_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://jxlilon2gqr7" path="res://scenes/ui.tscn" id="6_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=1123987747]
@@ -14,13 +16,13 @@
 [node name="van" parent="." unique_id=533248417 instance=ExtResource("1_uwrxv")]
 
 [node name="Camera2D" type="Camera2D" parent="van" unique_id=633105607]
-zoom = Vector2(3, 3)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="MeteorSpawner" type="Node2D" parent="van" unique_id=428932202]
 script = ExtResource("3_iywne")
+meteorPool = Array[ExtResource("4_gee14")]([ExtResource("5_0tnpc")])
 meteor_scene = ExtResource("4_iywne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=325052451]

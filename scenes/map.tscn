@@ -1,14 +1,7 @@
 [gd_scene format=4 uid="uid://tj526ajrvd0n"]
 
-[ext_resource type="Texture2D" uid="uid://ukusi3e1a5kd" path="res://assets/sprites/sand.png" id="1_4xfga"]
 [ext_resource type="Script" uid="uid://d1v4vdns440n6" path="res://scripts/map.gd" id="1_paxxb"]
 [ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="3_gldc4"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_paxxb"]
-texture = ExtResource("1_4xfga")
-0:0/size_in_atlas = Vector2i(2, 2)
-0:0/0 = 0
-0:0/0/z_index = -1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cso3"]
 texture = ExtResource("3_gldc4")
@@ -18,7 +11,6 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_gldc4"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_paxxb")
 sources/1 = SubResource("TileSetAtlasSource_0cso3")
 
 [node name="Map" type="Node2D" unique_id=48299148]

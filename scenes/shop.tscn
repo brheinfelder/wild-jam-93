@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://n5kdsr3w67t6"]
 
+[ext_resource type="Script" uid="uid://dvbv3einyqgo3" path="res://scenes/shop.gd" id="1_032fp"]
 [ext_resource type="Texture2D" uid="uid://c3nfum6wau21c" path="res://assets/sprites/walmart.png" id="1_lx5au"]
 [ext_resource type="Texture2D" uid="uid://c178dh2tljxxw" path="res://assets/sprites/shop.png" id="2_xfvoa"]
 [ext_resource type="Script" uid="uid://dxyem2gkcxiwh" path="res://scripts/sign.gd" id="3_1l46r"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l46r"]
+size = Vector2(98, 72)
+
 [node name="Shop" type="Node2D" unique_id=1197413404]
+script = ExtResource("1_032fp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=289732895]
 scale = Vector2(0.06539505, 0.065395094)
@@ -14,3 +19,8 @@ texture = ExtResource("1_lx5au")
 position = Vector2(61, -20)
 texture = ExtResource("2_xfvoa")
 script = ExtResource("3_1l46r")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=697876312 groups=["building", "staticCollision"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1369297147]
+shape = SubResource("RectangleShape2D_1l46r")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ukusi3e1a5kd"
-path="res://.godot/imported/sand.png-51b9d5df4cf788dc709220e423974e2d.ctex"
+uid="uid://c43jhyktrrn0t"
+path="res://.godot/imported/chisel_spawn-Sheet.png-7826fd5cecab42c6976316ea1b189c9c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sand.png"
-dest_files=["res://.godot/imported/sand.png-51b9d5df4cf788dc709220e423974e2d.ctex"]
+source_file="res://assets/sprites/chisel_spawn-Sheet.png"
+dest_files=["res://.godot/imported/chisel_spawn-Sheet.png-7826fd5cecab42c6976316ea1b189c9c.ctex"]
 
 [params]
 

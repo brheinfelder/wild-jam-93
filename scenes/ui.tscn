@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://jxlilon2gqr7"]
 
 [ext_resource type="Script" uid="uid://bao0lgrmp750h" path="res://scripts/ui/inventory.gd" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://csqyaayb6d5x8" path="res://scripts/orderManager.gd" id="2_x4jx1"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="3_gdt2y"]
+[ext_resource type="Resource" uid="uid://b08auyvdqo0wh" path="res://resources/orders/test_order.tres" id="4_wm3ai"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xlq6p"]
-font_size = 48
 
 [node name="Control" type="Control" unique_id=2067048120]
 layout_mode = 3
@@ -18,16 +20,23 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=586547975]
 offset_left = 14.0
 offset_top = 8.0
-offset_right = 62.0
-offset_bottom = 34.0
+offset_right = 232.0
+offset_bottom = 75.0
 text = "Budget: 0"
 label_settings = SubResource("LabelSettings_xlq6p")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1449320434]
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=1449320434]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
-offset_bottom = 40.0
+offset_bottom = 1.0
 grow_horizontal = 0
 script = ExtResource("1_nt7q6")
+
+[node name="Orders" type="VBoxContainer" parent="CanvasLayer" unique_id=77705353]
+offset_top = 40.0
+offset_right = 2.0
+offset_bottom = 80.0
+script = ExtResource("2_x4jx1")
+orderPool = Array[ExtResource("3_gdt2y")]([ExtResource("4_wm3ai")])

@@ -8,7 +8,7 @@ var spawnLight: PointLight2D
 var state: String = "falling"
 var lifetime: float = 5.0
 @onready var collider := $Sprite2D/Area2D/CollisionShape2D
-var resource: inventoryResource = inventoryResource.new()
+var resource: inventoryResource
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cam = $"../van/Camera2D"
@@ -20,7 +20,6 @@ func _ready() -> void:
 	spawnLight.visible = true
 	sprite.position = spawnOffset
 	sprite.visible = true
-	resource.icon = $Sprite2D.texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var time = 0

@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var meteorPool: Array[inventoryResource] = []
 @export var spawn_radius_min := 50
 @export var spawn_radius_max := 400
 @export var meteor_scene: PackedScene
@@ -23,3 +24,4 @@ func _spawn_meteor() -> void:
 	var meteor: Node2D = meteor_scene.instantiate()
 	get_tree().current_scene.add_child(meteor)
 	meteor.global_position = land_pos
+	meteor.resource = meteorPool[randi_range(0,meteorPool.size()-1)]

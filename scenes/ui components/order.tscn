@@ -1,0 +1,373 @@
+[gd_scene format=3 uid="uid://bnh4ujjby4gku"]
+
+[ext_resource type="Script" uid="uid://bjt0cf5qyt2nl" path="res://scripts/ui/orderPane.gd" id="1_u7fkl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7fkl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_508k8"]
+font_color = Color(0, 0.5019608, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u7fkl"]
+font_color = Color(0.5019608, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv8qn"]
+bg_color = Color(0.5019608, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dr8b"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dr8b"]
+bg_color = Color(0, 0.5019608, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_uv8qn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fail:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fail:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:custom_minimum_size:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:size:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_3dm8i"]
+resource_name = "fail_order"
+length = 2.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fail:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, 0, -0.16666667, -25, 0, 0, 0, -0.25, 0, 0.25, 0, -150, -0.125, 37.5, 0.125, -37.5),
+"times": PackedFloat32Array(0.008333325, 0.5083333, 1.5083333, 2.0083332)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Fail:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.16666667, 0, 0, 0, 0, -0.25, 0, 0.25, 0, 0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0.008333325, 0.5083333, 1.5083333, 2.0083332)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5083333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-150, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3wgul"]
+resource_name = "new_order"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, 0, -0.125, -37.5, 0.125, 37.5),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_u7fkl"]
+resource_name = "pass_order"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-150, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Success:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"points": PackedFloat32Array(-150, -0.0005, 0, 0.0005, 0, 0, -0.23333335, -0.5, 0.23333335, 0.5, 0, -0.25, 0, 0.25, 0, -150, -0.125, 37.5, 0.125, -37.5),
+"times": PackedFloat32Array(0.0009999999, 0.5, 1.5, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Success:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(3, 3, 3, 3),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0, 0, -0.12475, 0, 0.12475, 0, 0, -0.25, 0, 0.25, 0, 0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0.0009999999, 0.5, 1.5, 2)
+}
+
+[sub_resource type="Animation" id="Animation_4dr8b"]
+resource_name = "shrink"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:custom_minimum_size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0, 0, -0.125, 12.5, 0.125, -12.5),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 3),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0, 0, -0.125, 12.5, 0.125, -12.5),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wgul"]
+_data = {
+&"RESET": SubResource("Animation_uv8qn"),
+&"fail_order": SubResource("Animation_3dm8i"),
+&"new_order": SubResource("Animation_3wgul"),
+&"pass_order": SubResource("Animation_u7fkl"),
+&"shrink": SubResource("Animation_4dr8b")
+}
+
+[node name="Order Pane" type="Control" unique_id=1728333847]
+clip_contents = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.198883e-05
+offset_right = -746.0
+offset_bottom = -454.00006
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u7fkl")
+
+[node name="Panel" type="Panel" parent="." unique_id=919089859]
+clip_contents = true
+layout_mode = 0
+offset_left = -150.0
+offset_bottom = 50.0
+
+[node name="timer" type="ProgressBar" parent="Panel" unique_id=1183065949]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -4.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_u7fkl")
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="icon" type="TextureRect" parent="Panel" unique_id=1775670848]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="Panel" unique_id=211413391]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -91.0
+offset_bottom = 46.0
+grow_horizontal = 0
+
+[node name="gain" type="Label" parent="Panel/Control" unique_id=412066117]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 36.0
+grow_vertical = 2
+text = "Gain"
+label_settings = SubResource("LabelSettings_508k8")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="loss" type="Label" parent="Panel/Control" unique_id=84899550]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "loss"
+label_settings = SubResource("LabelSettings_u7fkl")
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/Control" unique_id=251687972]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fail" type="Panel" parent="." unique_id=615966722]
+clip_contents = true
+layout_mode = 0
+offset_left = -150.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uv8qn")
+
+[node name="Label" type="Label" parent="Fail" unique_id=272367899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-Loss"
+label_settings = SubResource("LabelSettings_4dr8b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Success" type="Panel" parent="." unique_id=638336913]
+clip_contents = true
+layout_mode = 0
+offset_left = -150.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dr8b")
+
+[node name="Label" type="Label" parent="Success" unique_id=227858005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+Gain"
+label_settings = SubResource("LabelSettings_4dr8b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=393890488]
+libraries/ = SubResource("AnimationLibrary_3wgul")

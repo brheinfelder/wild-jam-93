@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://23h1ct73jiuo"
-path="res://.godot/imported/van.png-80f8e77aa3fbef0ec7c3be1f2c9536dc.ctex"
+uid="uid://jgm6fy8gk6sf"
+path="res://.godot/imported/glowing_meteorite-Sheet.png-4fc9433c7b360f918fcc06299469863c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/van.png"
-dest_files=["res://.godot/imported/van.png-80f8e77aa3fbef0ec7c3be1f2c9536dc.ctex"]
+source_file="res://assets/sprites/glowing_meteorite-Sheet.png"
+dest_files=["res://.godot/imported/glowing_meteorite-Sheet.png-4fc9433c7b360f918fcc06299469863c.ctex"]
 
 [params]
 

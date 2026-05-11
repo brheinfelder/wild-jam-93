@@ -1,16 +1,13 @@
 extends Area2D
 
-signal item_picked_up(resource: inventoryResource, slot: int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if not event is InputEventKey or not event.pressed:
+	if !event.is_action_pressed("interact"):
 		return
-	var slot = event.keycode - KEY_1
-	if slot < 0 or slot >= gameStateManager.inventory_size:
-		return
+	var slot = gameStateManager.inventory.activeSlot
 	
 	var areas = $".".get_overlapping_areas()
 	if areas.is_empty():
@@ -27,5 +24,9 @@ func _input(event: InputEvent) -> void:
 		if area.is_in_group("pickup"):
 			gameStateManager.inventory.setInvSlot(obj.resource, slot)
 			obj.queue_free()
-			print_debug("Picked Up!")
+			break
+		elif area.is_in_group("building"):
+			var building = obj as Building
+			if building.processResource(gameStateManager.inventory.getInvSlot(slot)):
+				gameStateManager.inventory.eraseSlot(slot)
 			break

@@ -54,11 +54,11 @@ fill = 1
 fill_from = Vector2(0.49565217, 0.49130434)
 fill_to = Vector2(1, 0.49130434)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyp5x"]
+radius = 48.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ax43"]
 size = Vector2(56, 22)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_pyp5x"]
-radius = 57.0
 
 [node name="van" type="CharacterBody2D" unique_id=533248417]
 script = ExtResource("1_pyp5x")
@@ -76,14 +76,15 @@ energy = 0.2
 texture = SubResource("GradientTexture2D_5df7p")
 texture_scale = 2.0
 
+[node name="PickupManager" type="Area2D" parent="sprite" unique_id=1029572718]
+script = ExtResource("3_5df7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite/PickupManager" unique_id=2058668745]
+position = Vector2(-42, 1)
+shape = SubResource("CircleShape2D_pyp5x")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1468347983]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=679908274 groups=["player"]]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_1ax43")
-
-[node name="PickupManager" type="Area2D" parent="." unique_id=1029572718]
-script = ExtResource("3_5df7p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupManager" unique_id=2058668745]
-shape = SubResource("CircleShape2D_pyp5x")

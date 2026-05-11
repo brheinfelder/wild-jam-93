@@ -9,8 +9,8 @@ var lightDistance: float = 100.0
 func _physics_process(_delta: float) -> void:
 	var camPos = cam.get_screen_center_position()
 	var viewSize = get_viewport().get_visible_rect().size/cam.zoom
-	global_position = clampVector(camPos, signPos, viewSize - Vector2(tex_width,tex_height))
-	updateBrightness(signPos)
+	global_position = clampVector(camPos, signPos, viewSize - Vector2(tex_width*scale.x,tex_height*scale.y))
+	updateVisuals(signPos)
 	return
 	
 func clampVector(camera_pos: Vector2, world_pos: Vector2, view_size: Vector2) -> Vector2:
@@ -27,12 +27,16 @@ func clampVector(camera_pos: Vector2, world_pos: Vector2, view_size: Vector2) ->
 		
 	return camera_pos + direction*t
 	
-func updateBrightness(world_pos: Vector2) -> void:
+func updateVisuals(world_pos: Vector2) -> void:
 	var distance = (world_pos - global_position).length()
 	var progress = clampf(distance/lightDistance,0.0,1.0)
 	var brightness = smoothstep(1.0,0.0,progress)
 	var night_color := canvas_modulate.color
 	var inverse := Color(1.0 / night_color.r, 1.0 / night_color.g, 1.0 / night_color.b)
 	modulate = inverse.lerp(Color.WHITE, brightness)
-	
+	scale = Vector2(1.0,1.0) * lerp(1,2,1-brightness)
+	if progress>0:
+		light_mask = 10
+	else:
+		light_mask = 1
 	pass

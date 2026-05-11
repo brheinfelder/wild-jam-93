@@ -7,6 +7,7 @@ var balance: int = 0
 
 # References
 var inventory: Node
+var orderManager: Node
 
 func _ready() -> void:
 	inventoryItems.resize(inventory_size)
