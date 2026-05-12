@@ -10,6 +10,9 @@ var _timer := 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !gameStateManager.gameActive:
+		return
+		
 	_timer += delta
 	if _timer >= spawn_interval:
 		_timer = 0.0

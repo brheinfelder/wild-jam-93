@@ -14,7 +14,8 @@ func _ready() -> void:
 	gameStateManager.orderManager = $"."
 	
 func _process(delta: float) -> void:
-	orderTimer += delta
+	if !gameStateManager.gameActive:
+		orderTimer += delta
 	if orderTimer >= orderGenDelay and orderCount < maxOrders and orders.size() < maxDisplayOrders:
 		orderTimer = 0
 		if randf() <= orderGenChance:

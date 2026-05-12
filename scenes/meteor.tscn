@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5ny4hbsev4mu"]
 
 [ext_resource type="Script" uid="uid://wep8xql2egdw" path="res://scripts/meteor.gd" id="1_pxso2"]
-[ext_resource type="Texture2D" uid="uid://dw8nmi72jkjdj" path="res://assets/sprites/meteor.png" id="1_tcwo0"]
+[ext_resource type="Texture2D" uid="uid://dlj8ciklrtdhn" path="res://assets/sprites/meteorite_falling-Sheet.png" id="2_pxso2"]
 
 [sub_resource type="Gradient" id="Gradient_fitd0"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -12,8 +12,64 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_83eji"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tfog"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhxke"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfndj"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r80lr"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stakr"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88cbt"]
+atlas = ExtResource("2_pxso2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsx3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83eji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tfog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhxke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfndj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r80lr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stakr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88cbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_pxso2"]
-radius = 1666.6667
 
 [node name="Node2D" type="Node2D" unique_id=608593549]
 script = ExtResource("1_pxso2")
@@ -22,12 +78,21 @@ script = ExtResource("1_pxso2")
 visible = false
 texture = SubResource("GradientTexture2D_tcwo0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=705805487]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=788716055]
 z_index = -1
-scale = Vector2(0.003, 0.003)
-texture = ExtResource("1_tcwo0")
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_wsx3o")
+autoplay = "default"
+frame_progress = 0.39675024
+offset = Vector2(4, -4)
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=721150464 groups=["pickup"]]
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=721150464]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=1313751623]
 shape = SubResource("CircleShape2D_pxso2")
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=1986756439]
+color = Color(0, 1, 0, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_tcwo0")
+texture_scale = 2.0

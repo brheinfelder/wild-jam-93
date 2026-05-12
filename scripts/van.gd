@@ -7,8 +7,8 @@ const DECEL = 100
 @onready var sprite = $sprite
 
 func _physics_process(delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	if !gameStateManager.gameActive:
+		return
 	var lrdirection := Input.get_axis("move_left", "move_right")
 	var uddirection := Input.get_axis("move_up", "move_down")
 	

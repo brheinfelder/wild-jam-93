@@ -7,6 +7,6 @@
 script = ExtResource("2_g7fcy")
 resource = ExtResource("1_kmlrk")
 time = 45
-moneyGain = 100
-moneyLoss = 20
+moneyGain = 50
+moneyLoss = 25
 metadata/_custom_type_script = "uid://bshf2be4p0nle"

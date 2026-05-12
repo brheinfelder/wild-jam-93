@@ -7,18 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://5ny4hbsev4mu" path="res://scenes/meteor.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://n5kdsr3w67t6" path="res://scenes/shop.tscn" id="4_lbhrr"]
 [ext_resource type="Resource" uid="uid://dw7s4cshy6cd0" path="res://resources/inventoryResources/test_meteor.tres" id="5_0tnpc"]
-[ext_resource type="PackedScene" uid="uid://jxlilon2gqr7" path="res://scenes/ui.tscn" id="6_p57ef"]
+
+[sub_resource type="Environment" id="Environment_gee14"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.15
 
 [node name="Game" type="Node2D" unique_id=1123987747]
 
 [node name="Map" parent="." unique_id=48299148 instance=ExtResource("1_yqjtg")]
 
 [node name="van" parent="." unique_id=533248417 instance=ExtResource("1_uwrxv")]
+position = Vector2(12, -6)
 
 [node name="Camera2D" type="Camera2D" parent="van" unique_id=633105607]
+zoom = Vector2(1.5, 1.5)
 process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 
 [node name="MeteorSpawner" type="Node2D" parent="van" unique_id=428932202]
 script = ExtResource("3_iywne")
@@ -26,10 +33,16 @@ meteorPool = Array[ExtResource("4_gee14")]([ExtResource("5_0tnpc")])
 meteor_scene = ExtResource("4_iywne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=325052451]
+visible = false
 position = Vector2(2, 0)
 color = Color(0.08163542, 0.14968315, 0.32229036, 1)
 
 [node name="Shop" parent="." unique_id=1197413404 instance=ExtResource("4_lbhrr")]
 position = Vector2(-80, -24)
 
-[node name="Control" parent="." unique_id=2067048120 instance=ExtResource("6_p57ef")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1373592182]
+environment = SubResource("Environment_gee14")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1667224342]
+color = Color(0.14509805, 0.15294118, 0.3137255, 1)
+blend_mode = 2

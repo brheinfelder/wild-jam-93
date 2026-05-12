@@ -29,4 +29,6 @@ func _input(event: InputEvent) -> void:
 			var building = obj as Building
 			if building.processResource(gameStateManager.inventory.getInvSlot(slot)):
 				gameStateManager.inventory.eraseSlot(slot)
+			else:
+				gameStateManager.inventory.denyInteraction(slot)
 			break

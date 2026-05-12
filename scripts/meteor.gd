@@ -2,7 +2,7 @@ extends Node2D
 
 const animDuration = 1
 var cam: Camera2D
-var sprite: Sprite2D
+var sprite: AnimatedSprite2D
 var spawnOffset: Vector2
 var spawnLight: PointLight2D
 var state: String = "falling"
@@ -15,6 +15,8 @@ func _ready() -> void:
 	sprite = $Sprite2D
 	var viewSize = get_viewport().get_visible_rect().size/cam.zoom
 	spawnOffset = Vector2(randf_range(-200,200),-viewSize.y-100)
+	var angle = 45 - rad_to_deg(atan2(abs(spawnOffset.y),spawnOffset.x))
+	sprite.rotation_degrees = angle
 	spawnLight = $PointLight2D
 	spawnLight.energy = 0.0
 	spawnLight.visible = true
@@ -34,9 +36,11 @@ func _process(delta: float) -> void:
 			time = 0
 			state = "landed"
 	if state == "landed":
+		$Sprite2D/Area2D.add_to_group("pickup")
 		time+=delta
 		var lifeProgress = clampf(time/lifetime,0,1)
 		spawnLight.energy = lerp(1,0,lifeProgress)
+		$Sprite2D/PointLight2D.energy = lerp(1.0,0.2,lifeProgress)
 		sprite.modulate.a = clampf(inverse_lerp(1.0, 0.9,lifeProgress),0,1)
 		if lifeProgress == 1.0:
 			queue_free()

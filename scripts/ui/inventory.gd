@@ -4,6 +4,7 @@ var currentInventory := gameStateManager.inventoryItems
 var slotSize: int = 50
 var inventorySlots: Array[Panel] = []
 var activeSlot: int = 0
+var spriteDisplay: PackedScene = load("res://scenes/ui components/spriteDisplay.tscn")
 
 @onready var hotbar := $"."
 
@@ -16,20 +17,11 @@ func _ready() -> void:
 		slot.custom_minimum_size = Vector2(slotSize,slotSize)
 		hotbar.add_child(slot)
 		
-		var icon := TextureRect.new()
-		icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH
-		icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		var icon := spriteDisplay.instantiate()
 		slot.add_child(icon)
 		
-		var inset := slotSize * 0.125  # 12.5% on each side = 75% total size
-		icon.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-		icon.offset_left   =  inset
-		icon.offset_right  = -inset
-		icon.offset_top    =  inset
-		icon.offset_bottom = -inset
-		
 		inventorySlots[i] = slot
-	redrawInv()
+		redrawSlot(i)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,25 +37,36 @@ func _input(event: InputEvent) -> void:
 		cycle_slot(1)
 
 func cycle_slot(dif: int) -> void:
+	var oldSlot = activeSlot
 	activeSlot = wrapi(activeSlot+dif,0,gameStateManager.inventory_size)
-	redrawInv()
+	redrawSlot(activeSlot)
+	redrawSlot(oldSlot)
 
 func setInvSlot(item: inventoryResource, slot: int) -> void:
 	currentInventory[slot] = item
-	inventorySlots[slot].get_child(0).texture = item.icon
+	redrawSlot(slot)
 	
 func getInvSlot(slot: int) -> inventoryResource:
 	return currentInventory[slot]
 	
 func eraseSlot(slot: int) -> void:
 	currentInventory[slot] = null
-	redrawInv()
+	redrawSlot(slot)
 	
-func redrawInv() -> void:
-	for i in currentInventory.size():
-		inventorySlots[i].remove_theme_stylebox_override("panel")
-		inventorySlots[i].get_child(0).texture = currentInventory[i].icon if currentInventory[i] else null
-		if i == activeSlot:
-			var style := (inventorySlots[i].get_theme_stylebox("panel") as StyleBoxFlat).duplicate()
-			style.bg_color += Color(50,50,50,0)
-			inventorySlots[i].add_theme_stylebox_override("panel", style)
+func denyInteraction(slot: int) -> void:
+	var animController: AnimationPlayer = inventorySlots[slot].get_child(0).get_node("AnimationPlayer")
+	animController.play("deny_interaction")
+	
+func redrawSlot(slot: int) -> void:
+	inventorySlots[slot].remove_theme_stylebox_override("panel")
+	var slotSprite: AnimatedSprite2D = inventorySlots[slot].get_child(0).get_node("SubViewport/AnimatedSprite2D") as AnimatedSprite2D
+	if currentInventory[slot]:
+		slotSprite.sprite_frames = currentInventory[slot].sprite
+		slotSprite.play()
+	else:
+		slotSprite.sprite_frames = null
+		pass
+	if slot == activeSlot:
+		var style := (inventorySlots[slot].get_theme_stylebox("panel") as StyleBoxFlat).duplicate()
+		style.bg_color += Color(0.2,0.2,0.2,0)
+		inventorySlots[slot].add_theme_stylebox_override("panel", style)

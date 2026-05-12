@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://t288515n4iwr"]
+
+[ext_resource type="Texture2D" uid="uid://jgm6fy8gk6sf" path="res://assets/sprites/glowing_meteorite-Sheet.png" id="1_7jjka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxtvm"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksyfe"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcjvc"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7u1c"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijo5u"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtb57"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa0it"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbrlv"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rw4ri"]
+atlas = ExtResource("1_7jjka")
+region = Rect2(256, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxtvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksyfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcjvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7u1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijo5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtb57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa0it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbrlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rw4ri")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

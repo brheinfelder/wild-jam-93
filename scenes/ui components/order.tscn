@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnh4ujjby4gku"]
 
 [ext_resource type="Script" uid="uid://bjt0cf5qyt2nl" path="res://scripts/ui/orderPane.gd" id="1_u7fkl"]
+[ext_resource type="PackedScene" uid="uid://q02lr4x1ac82" path="res://scenes/ui components/spriteDisplay.tscn" id="2_4dr8b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7fkl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -330,6 +331,9 @@ grow_vertical = 2
 text = "/"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SubViewportContainer" parent="Panel" unique_id=679689018 instance=ExtResource("2_4dr8b")]
+layout_mode = 1
 
 [node name="Fail" type="Panel" parent="." unique_id=615966722]
 clip_contents = true

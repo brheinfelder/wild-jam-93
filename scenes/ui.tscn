@@ -4,8 +4,316 @@
 [ext_resource type="Script" uid="uid://csqyaayb6d5x8" path="res://scripts/orderManager.gd" id="2_x4jx1"]
 [ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="3_gdt2y"]
 [ext_resource type="Resource" uid="uid://b08auyvdqo0wh" path="res://resources/orders/test_order.tres" id="4_wm3ai"]
+[ext_resource type="Script" uid="uid://b5glabbq8034x" path="res://scripts/balance.gd" id="5_8dubc"]
+[ext_resource type="Texture2D" uid="uid://b21nv1sluew8l" path="res://assets/sprites/spinning_coin-Sheet.png" id="5_wm3ai"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_xlq6p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dubc"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7vwb"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktti3"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgfq5"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dvkv"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdcm2"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rmj2"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsj0x"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsv74"]
+atlas = ExtResource("5_wm3ai")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1mc3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dubc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7vwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktti3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgfq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dvkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdcm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rmj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsj0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsv74")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wm3ai"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_8dubc"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:label_settings:font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:label_settings:font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ktti3"]
+resource_name = "gain"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.016666668, -0.00021786823, 0.03333334, 0.0004357365, 1.0039216, -0.041666668, -0.08366014, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.5019608, -0.016666668, -0.00021786823, 0.03333334, 0.0004357365, 1.0039216, -0.041666668, -0.16732028, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:label_settings:font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.016666668, -0.00021786823, 0.03333334, 0.0004357365, 1.0039216, -0.041666668, -0.16732028, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:label_settings:font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.016666668, 0, 0.03333334, 0, 1, -0.041666668, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_p7vwb"]
+resource_name = "loss"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.5019608, -0.041666668, 0.08300653, 0, 0, 1.0039216, -0.041666668, -0.08366014, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:label_settings:font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.041666668, 0.16666667, 0, 0, 1.0039216, -0.041666668, -0.16732028, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:label_settings:font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.041666668, 0.16666667, 0, 0, 1.0039216, -0.041666668, -0.16732028, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:label_settings:font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.041666668, 0, 0, 0, 1, -0.041666668, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.1, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktti3"]
+_data = {
+&"RESET": SubResource("Animation_8dubc"),
+&"gain": SubResource("Animation_ktti3"),
+&"loss": SubResource("Animation_p7vwb")
+}
+
+[sub_resource type="Animation" id="Animation_cgfq5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-504, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7dvkv"]
+resource_name = "hide_shade"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -504, -0.033333335, 84.00001, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_vdcm2"]
+resource_name = "show_shade"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-504, -0.25, 0, 0.25, 0, 0, -0.033333335, -84.00001, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rmj2"]
+_data = {
+&"RESET": SubResource("Animation_cgfq5"),
+&"hide_shade": SubResource("Animation_7dvkv"),
+&"show_shade": SubResource("Animation_vdcm2")
+}
 
 [node name="Control" type="Control" unique_id=2067048120]
 layout_mode = 3
@@ -17,14 +325,6 @@ grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1387829177]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=586547975]
-offset_left = 14.0
-offset_top = 8.0
-offset_right = 232.0
-offset_bottom = 75.0
-text = "Budget: 0"
-label_settings = SubResource("LabelSettings_xlq6p")
-
 [node name="Inventory" type="HBoxContainer" parent="CanvasLayer" unique_id=1449320434]
 anchors_preset = 1
 anchor_left = 1.0
@@ -35,8 +335,57 @@ grow_horizontal = 0
 script = ExtResource("1_nt7q6")
 
 [node name="Orders" type="VBoxContainer" parent="CanvasLayer" unique_id=77705353]
-offset_top = 40.0
+offset_top = 60.0
 offset_right = 2.0
-offset_bottom = 80.0
+offset_bottom = 100.0
 script = ExtResource("2_x4jx1")
 orderPool = Array[ExtResource("3_gdt2y")]([ExtResource("4_wm3ai")])
+
+[node name="Balance" type="Control" parent="CanvasLayer" unique_id=874023803]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="Control" parent="CanvasLayer" unique_id=1894293185]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 102.0
+offset_bottom = 50.0
+script = ExtResource("5_8dubc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/HBoxContainer" unique_id=428685130]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_h1mc3")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.4949472
+centered = false
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=666246786]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -9.0
+offset_right = 98.0
+offset_bottom = 36.0
+text = "0"
+label_settings = SubResource("LabelSettings_wm3ai")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/HBoxContainer" unique_id=1831035515]
+libraries/ = SubResource("AnimationLibrary_ktti3")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=537796079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -504.0
+offset_bottom = -504.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect" unique_id=1948959129]
+libraries/ = SubResource("AnimationLibrary_6rmj2")

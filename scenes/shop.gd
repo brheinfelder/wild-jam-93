@@ -5,5 +5,4 @@ func processResource(res: inventoryResource) -> bool:
 		if order.orderResource.resource==res:
 			order.orderSuccess()
 			return true
-		pass
 	return false

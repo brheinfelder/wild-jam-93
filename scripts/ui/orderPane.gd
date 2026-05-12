@@ -5,7 +5,7 @@ var orderResource: order
 @onready var gradient: Gradient = (load("res://assets/ui/progress.tres") as GradientTexture1D).gradient
 @onready var gain: Label = $Panel/Control/gain
 @onready var loss: Label = $Panel/Control/loss
-@onready var icon: TextureRect = $Panel/icon
+@onready var icon: AnimatedSprite2D = $Panel/SubViewportContainer/SubViewport/AnimatedSprite2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var failLabel: Label = $Fail/Label
 @onready var successLabel: Label = $Success/Label
@@ -17,7 +17,8 @@ func _ready() -> void:
 		orderResource.remainingTime = orderResource.time
 	gain.text = str(orderResource.moneyGain)
 	loss.text = str(orderResource.moneyLoss)
-	icon.texture = orderResource.resource.icon
+	icon.sprite_frames = orderResource.resource.sprite
+	icon.play()
 	anim.play("RESET")
 	anim.play("new_order")
 	failLabel.text = "-"+str(orderResource.moneyLoss)
@@ -26,7 +27,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	orderResource.remainingTime -= delta
+	if gameStateManager.gameActive:
+		orderResource.remainingTime -= delta
 	var progress = clampf(orderResource.remainingTime / float(orderResource.time),0.0,1.0)
 	timer.value = progress
 	var fill: StyleBoxFlat = timer.get_theme_stylebox("fill").duplicate()
@@ -40,6 +42,7 @@ func _process(delta: float) -> void:
 func orderSuccess() -> void:
 	print("Order success! +"+str(orderResource.moneyGain))
 	gameStateManager.orderManager.orders.erase(self)
+	gameStateManager.balance += orderResource.moneyGain
 	anim.play("pass_order")
 	await anim.animation_finished
 	anim.play("shrink")
@@ -49,6 +52,7 @@ func orderSuccess() -> void:
 func orderFailed() -> void:
 	print("Order failed! -"+str(orderResource.moneyLoss))
 	gameStateManager.orderManager.orders.erase(self)
+	gameStateManager.balance -= orderResource.moneyLoss
 	anim.play("fail_order")
 	await anim.animation_finished
 	anim.play("shrink")
