@@ -3,3 +3,4 @@ extends Resource
 
 @export var qualityString: String
 @export var sprite: SpriteFrames
+@export var color: Color

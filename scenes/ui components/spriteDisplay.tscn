@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://q02lr4x1ac82"]
 
 [ext_resource type="SpriteFrames" uid="uid://t288515n4iwr" path="res://assets/sprites/meteorite.tres" id="1_jmndc"]
+[ext_resource type="Script" uid="uid://bvxdt6xrcwu7v" path="res://scripts/ui/sprite_display.gd" id="1_uqw5x"]
 
 [sub_resource type="Animation" id="Animation_jmndc"]
 length = 0.001
@@ -125,11 +126,24 @@ _data = {
 &"deny_interaction": SubResource("Animation_uqw5x")
 }
 
+[sub_resource type="Gradient" id="Gradient_uqw5x"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.40963855)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvb0k"]
+gradient = SubResource("Gradient_uqw5x")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="SubViewportContainer" type="SubViewportContainer" unique_id=679689018]
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_uqw5x")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1219014290]
 disable_3d = true
@@ -146,3 +160,8 @@ sprite_frames = ExtResource("1_jmndc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738963751]
 libraries/ = SubResource("AnimationLibrary_mvb0k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=185225608]
+visible = false
+position = Vector2(32, 5.9999995)
+texture = SubResource("GradientTexture2D_mvb0k")

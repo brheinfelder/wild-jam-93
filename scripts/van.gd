@@ -7,10 +7,11 @@ const DECEL = 100
 @onready var sprite = $sprite
 
 func _physics_process(delta: float) -> void:
-	if !gameStateManager.gameActive:
-		return
 	var lrdirection := Input.get_axis("move_left", "move_right")
 	var uddirection := Input.get_axis("move_up", "move_down")
+	if !gameStateManager.gameActive:
+		lrdirection = 0
+		uddirection = 0
 	
 	var direction = Vector2(lrdirection,uddirection).normalized()
 	if direction.length() == 0:

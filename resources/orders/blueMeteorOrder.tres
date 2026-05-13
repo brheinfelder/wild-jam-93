@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://c1litaf1esnj8"]
+
+[ext_resource type="Resource" uid="uid://crng1d66v30xl" path="res://resources/inventoryResources/blueMeteor.tres" id="1_wnnfv"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="2_sfkdr"]
+
+[resource]
+script = ExtResource("2_sfkdr")
+resource = ExtResource("1_wnnfv")
+time = 45
+moneyGain = 50
+moneyLoss = 25
+bounty = true
+metadata/_custom_type_script = "uid://bshf2be4p0nle"

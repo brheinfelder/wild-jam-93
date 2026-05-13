@@ -14,6 +14,18 @@ font_color = Color(0, 0.5019608, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_u7fkl"]
 font_color = Color(0.5019608, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dm8i"]
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv8qn"]
 bg_color = Color(0.5019608, 0, 0, 1)
 corner_radius_top_left = 3
@@ -99,6 +111,18 @@ tracks/5/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(50, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Success:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-150, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3dm8i"]
@@ -259,16 +283,14 @@ offset_left = -150.0
 offset_bottom = 50.0
 
 [node name="timer" type="ProgressBar" parent="Panel" unique_id=1183065949]
+z_index = 2
 clip_contents = true
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -75.0
 offset_top = -4.0
-offset_right = 75.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_u7fkl")
@@ -335,11 +357,26 @@ vertical_alignment = 1
 [node name="SubViewportContainer" parent="Panel" unique_id=679689018 instance=ExtResource("2_4dr8b")]
 layout_mode = 1
 
+[node name="BountyBorder" type="PanelContainer" parent="Panel" unique_id=1949361814]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3dm8i")
+
 [node name="Fail" type="Panel" parent="." unique_id=615966722]
+z_index = 3
 clip_contents = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -150.0
-offset_bottom = 50.0
+offset_right = -150.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uv8qn")
 
 [node name="Label" type="Label" parent="Fail" unique_id=272367899]
@@ -355,10 +392,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Success" type="Panel" parent="." unique_id=638336913]
+z_index = 3
 clip_contents = true
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -150.0
-offset_bottom = 50.0
+offset_right = -150.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4dr8b")
 
 [node name="Label" type="Label" parent="Success" unique_id=227858005]

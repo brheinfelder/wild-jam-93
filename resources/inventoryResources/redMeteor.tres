@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="inventoryResource" format=3 uid="uid://b6hwchfcsvske"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_l2pjs"]
+[ext_resource type="SpriteFrames" uid="uid://t288515n4iwr" path="res://assets/sprites/meteorite.tres" id="2_tfgbe"]
+
+[resource]
+script = ExtResource("1_l2pjs")
+qualityString = "red"
+sprite = ExtResource("2_tfgbe")
+color = Color(0.5019608, 0, 0, 1)
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"

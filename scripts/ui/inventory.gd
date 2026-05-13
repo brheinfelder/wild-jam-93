@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends VBoxContainer
 
 var currentInventory := gameStateManager.inventoryItems
 var slotSize: int = 50
@@ -59,12 +59,15 @@ func denyInteraction(slot: int) -> void:
 	
 func redrawSlot(slot: int) -> void:
 	inventorySlots[slot].remove_theme_stylebox_override("panel")
-	var slotSprite: AnimatedSprite2D = inventorySlots[slot].get_child(0).get_node("SubViewport/AnimatedSprite2D") as AnimatedSprite2D
+	var slotSprite: Control = inventorySlots[slot].get_child(0)
 	if currentInventory[slot]:
-		slotSprite.sprite_frames = currentInventory[slot].sprite
-		slotSprite.play()
+		slotSprite.spriteFrames = currentInventory[slot].sprite
+		slotSprite.badgeColor = currentInventory[slot].color
+		slotSprite.init()
 	else:
-		slotSprite.sprite_frames = null
+		slotSprite.spriteFrames = null
+		slotSprite.badgeColor = Color(0,0,0,0)
+		slotSprite.init()
 		pass
 	if slot == activeSlot:
 		var style := (inventorySlots[slot].get_theme_stylebox("panel") as StyleBoxFlat).duplicate()

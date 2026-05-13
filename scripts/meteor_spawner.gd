@@ -4,7 +4,7 @@ extends Node2D
 @export var spawn_radius_min := 50
 @export var spawn_radius_max := 400
 @export var meteor_scene: PackedScene
-@export var spawn_interval := 2
+@export var spawn_interval := 1
 @onready var player: Node2D = $".."
 var _timer := 0.0
 
@@ -25,6 +25,6 @@ func _spawn_meteor() -> void:
 	var land_pos := player.global_position + Vector2(cos(angle), sin(angle)) * dist
 	
 	var meteor: Node2D = meteor_scene.instantiate()
-	get_tree().current_scene.add_child(meteor)
+	gameStateManager.sceneManager.loadedScene.add_child(meteor)
 	meteor.global_position = land_pos
 	meteor.resource = meteorPool[randi_range(0,meteorPool.size()-1)]

@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cicnsm8k4sqmc"]
 
+[ext_resource type="Script" uid="uid://dxe0o43hkr878" path="res://scripts/roundController.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://c1qwhhkm41r8y" path="res://scenes/van.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://tj526ajrvd0n" path="res://scenes/map.tscn" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://c6ylahyvufgjs" path="res://scripts/meteor_spawner.gd" id="3_iywne"]
 [ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://5ny4hbsev4mu" path="res://scenes/meteor.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://n5kdsr3w67t6" path="res://scenes/shop.tscn" id="4_lbhrr"]
-[ext_resource type="Resource" uid="uid://dw7s4cshy6cd0" path="res://resources/inventoryResources/test_meteor.tres" id="5_0tnpc"]
+[ext_resource type="Resource" uid="uid://dw7s4cshy6cd0" path="res://resources/inventoryResources/greenMeteor.tres" id="5_0tnpc"]
+[ext_resource type="Resource" uid="uid://crng1d66v30xl" path="res://resources/inventoryResources/blueMeteor.tres" id="7_vtaks"]
+[ext_resource type="Resource" uid="uid://b6hwchfcsvske" path="res://resources/inventoryResources/redMeteor.tres" id="8_kvpfn"]
 
 [sub_resource type="Environment" id="Environment_gee14"]
 background_mode = 3
@@ -15,21 +18,79 @@ glow_enabled = true
 glow_intensity = 1.0
 glow_bloom = 0.15
 
+[sub_resource type="LabelSettings" id="LabelSettings_gee14"]
+font_size = 96
+font_color = Color(6.389535, 6.389535, 6.389535, 1)
+shadow_size = 0
+shadow_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+shadow_offset = Vector2(0, 6)
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(400, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+resource_name = "label_in"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(400, -0.25, 0, 0, -116.5, 0, -0.13333333, 1.5, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "label_out"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, 0, 0, 0.13, 0, -400, 0, 115, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"label_in": SubResource("Animation_0tnpc"),
+&"label_out": SubResource("Animation_vtaks")
+}
+
 [node name="Game" type="Node2D" unique_id=1123987747]
+script = ExtResource("1_gee14")
 
 [node name="Map" parent="." unique_id=48299148 instance=ExtResource("1_yqjtg")]
 
 [node name="van" parent="." unique_id=533248417 instance=ExtResource("1_uwrxv")]
-position = Vector2(12, -6)
+position = Vector2(14, 29)
 
-[node name="Camera2D" type="Camera2D" parent="van" unique_id=633105607]
+[node name="Camera2D" type="Camera2D" parent="van" unique_id=633105607 groups=["camera"]]
 zoom = Vector2(1.5, 1.5)
 process_callback = 0
 position_smoothing_enabled = true
 
 [node name="MeteorSpawner" type="Node2D" parent="van" unique_id=428932202]
 script = ExtResource("3_iywne")
-meteorPool = Array[ExtResource("4_gee14")]([ExtResource("5_0tnpc")])
+meteorPool = Array[ExtResource("4_gee14")]([ExtResource("5_0tnpc"), ExtResource("7_vtaks"), ExtResource("8_kvpfn")])
 meteor_scene = ExtResource("4_iywne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=325052451]
@@ -46,3 +107,22 @@ environment = SubResource("Environment_gee14")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1667224342]
 color = Color(0.14509805, 0.15294118, 0.3137255, 1)
 blend_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=843751744]
+layer = 10
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2113259851]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 400.0
+offset_bottom = 399.9994
+grow_horizontal = 2
+grow_vertical = 2
+text = "LABEL"
+label_settings = SubResource("LabelSettings_gee14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1850229984]
+libraries/ = SubResource("AnimationLibrary_vtaks")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="wild jam 93"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="uid://qcy231xlt0f2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -32,6 +32,12 @@ pickup=""
 building="Interaction group for buildings/processing"
 staticCollision="Group for custom static collision physics"
 dynamicCollision=""
+camera=""
+
+[gui]
+
+theme/default_font_subpixel_positioning=0
+theme/custom_font="uid://cybb3ip631oqn"
 
 [input]
 

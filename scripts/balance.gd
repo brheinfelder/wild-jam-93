@@ -6,7 +6,7 @@ var animDuration: float = 1
 var floatBalance: float = float(balance)
 var cumMult: float = 1
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $SubViewportContainer.get_child(0).get_node("AnimatedSprite2D")
 @onready var balanceLabel: Label = $Label
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -36,13 +36,13 @@ func updateAnimation(dif: int) -> void:
 		sprite.speed_scale = lerp(1.0,speedMult,pingPong(progress))
 		floatBalance += dif*progress - balanceAdded
 		balanceAdded = dif*progress
-		balanceLabel.text = str(int(floatBalance))
+		balanceLabel.text = str(roundi(floatBalance))
 		timer += get_process_delta_time()
 		await get_tree().process_frame
 		pass
 	sprite.speed_scale = 1
 	floatBalance += dif - balanceAdded
-	balanceLabel.text = str(int(ceil(floatBalance)))
+	balanceLabel.text = str(roundi(floatBalance))
 	return
 
 func EaseInOutSine(x: float) -> float:

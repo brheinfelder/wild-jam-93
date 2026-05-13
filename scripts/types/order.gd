@@ -6,3 +6,4 @@ extends Resource
 var remainingTime: float
 @export var moneyGain: int
 @export var moneyLoss: int
+@export var bounty: bool

@@ -11,7 +11,7 @@ var lifetime: float = 5.0
 var resource: inventoryResource
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cam = $"../van/Camera2D"
+	cam = get_tree().get_first_node_in_group("camera")
 	sprite = $Sprite2D
 	var viewSize = get_viewport().get_visible_rect().size/cam.zoom
 	spawnOffset = Vector2(randf_range(-200,200),-viewSize.y-100)
@@ -27,10 +27,11 @@ func _ready() -> void:
 var time = 0
 
 func _process(delta: float) -> void:
+	spawnLight.color = resource.color
 	if state == "falling":
 		time+=delta
 		var progress = clampf(time/animDuration,0,1)
-		spawnLight.energy = lerp(0.0,1.0,progress)
+		spawnLight.energy = lerp(0.0,2.0,progress)
 		sprite.position = spawnOffset.lerp(Vector2(0,0),progress)
 		if progress == 1.0:
 			time = 0
@@ -39,8 +40,8 @@ func _process(delta: float) -> void:
 		$Sprite2D/Area2D.add_to_group("pickup")
 		time+=delta
 		var lifeProgress = clampf(time/lifetime,0,1)
-		spawnLight.energy = lerp(1,0,lifeProgress)
-		$Sprite2D/PointLight2D.energy = lerp(1.0,0.2,lifeProgress)
+		spawnLight.energy = lerp(2,0,lifeProgress)
+		$Sprite2D/PointLight2D.energy = lerp(0.5,0.2,lifeProgress)
 		sprite.modulate.a = clampf(inverse_lerp(1.0, 0.9,lifeProgress),0,1)
 		if lifeProgress == 1.0:
 			queue_free()

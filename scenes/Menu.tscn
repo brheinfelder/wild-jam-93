@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c78bdy8risevo"]
+
+[ext_resource type="Script" uid="uid://c0f2bunkn8c1b" path="res://scripts/menu.gd" id="1_xdvgc"]
+[ext_resource type="PackedScene" uid="uid://cicnsm8k4sqmc" path="res://scenes/game.tscn" id="2_upctu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lumdm"]
+font_size = 128
+
+[node name="Node2D" type="Node2D" unique_id=743312780]
+script = ExtResource("1_xdvgc")
+nextScene = ExtResource("2_upctu")
+
+[node name="Control" type="Control" parent="." unique_id=153763554]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 896.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=499802170]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=787156872]
+layout_mode = 2
+text = "Meteor Mayhem"
+label_settings = SubResource("LabelSettings_lumdm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=3618135]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+text = "Play"
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
