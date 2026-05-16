@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dhc8tgxs2o23j"]
+
+[ext_resource type="PackedScene" uid="uid://bh2s62aiuq7om" path="res://scenes/ui components/upgrade.tscn" id="1_ca2qj"]
+[ext_resource type="Script" uid="uid://cmgi2vir66lx2" path="res://scenes/nextNightButton.gd" id="1_kg3i0"]
+[ext_resource type="PackedScene" uid="uid://dh5m88wcgxbul" path="res://scenes/ui components/balance.tscn" id="2_hoavx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hmjja"]
+font_size = 48
+shadow_size = 0
+shadow_color = Color(0.63836133, 0.34320486, 1, 1)
+shadow_offset = Vector2(0, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ca2qj"]
+font_size = 48
+shadow_size = 0
+shadow_color = Color(0, 0.5019608, 0, 1)
+shadow_offset = Vector2(0, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=881117814]
+
+[node name="Bounty Board" type="MarginContainer" parent="." unique_id=602473595]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 300.0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Bounty Board" unique_id=241069457]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bounty Board/VBoxContainer" unique_id=2054274659]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "BOUNTIES"
+label_settings = SubResource("LabelSettings_hmjja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=71651631]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Night _ ->"
+script = ExtResource("1_kg3i0")
+
+[node name="Balance" parent="." unique_id=1921552481 instance=ExtResource("2_hoavx")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.5
+offset_top = -50.0
+offset_right = 29.5
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Shop" type="MarginContainer" parent="." unique_id=1891449415]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_bottom = 236.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Shop" unique_id=1581221217]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Shop/VBoxContainer" unique_id=307787466]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_ca2qj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="VBoxContainer" parent="Shop/VBoxContainer" unique_id=1664209872]
+layout_mode = 2
+
+[node name="Speed" parent="Shop/VBoxContainer/GridContainer" unique_id=1624829190 instance=ExtResource("1_ca2qj")]
+layout_mode = 2
+upgradeName = "TRUCK SPEED"
+upgradeSlug = "TRUCK_SPEED"
+baseCost = 100
+costScaling = 100
+maxLevel = 10
+
+[node name="Accel" parent="Shop/VBoxContainer/GridContainer" unique_id=956740588 instance=ExtResource("1_ca2qj")]
+layout_mode = 2
+upgradeName = "TRUCK ACCELERATION"
+upgradeSlug = "TRUCK_ACCEL"
+baseCost = 100
+costScaling = 100
+maxLevel = 10
+
+[node name="Inventory" parent="Shop/VBoxContainer/GridContainer" unique_id=99943550 instance=ExtResource("1_ca2qj")]
+layout_mode = 2
+upgradeName = "INVENTORY SLOTS"
+upgradeSlug = "INVENTORY"
+baseCost = 1000
+costScaling = 1000
+maxLevel = 6
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

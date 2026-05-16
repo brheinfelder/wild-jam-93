@@ -36,7 +36,9 @@ camera=""
 
 [gui]
 
+theme/default_font_antialiasing=0
 theme/default_font_subpixel_positioning=0
+theme/custom="uid://tmq2tot38p3k"
 theme/custom_font="uid://cybb3ip631oqn"
 
 [input]

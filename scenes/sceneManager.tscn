@@ -88,9 +88,12 @@ _data = {
 }
 
 [node name="root" type="Node2D" unique_id=834078717]
+z_index = 1000
+z_as_relative = false
 script = ExtResource("1_mmdac")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1849935763]
+layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1927408399]
 anchors_preset = 15

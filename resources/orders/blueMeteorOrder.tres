@@ -9,5 +9,4 @@ resource = ExtResource("1_wnnfv")
 time = 45
 moneyGain = 50
 moneyLoss = 25
-bounty = true
 metadata/_custom_type_script = "uid://bshf2be4p0nle"

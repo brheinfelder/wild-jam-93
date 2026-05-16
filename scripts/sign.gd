@@ -1,9 +1,8 @@
 extends Sprite2D
-@onready var tex_height = texture.get_height()
-@onready var tex_width = texture.get_width()
+@onready var tex_height = get_rect().size.y
+@onready var tex_width = get_rect().size.x
 @onready var cam: Camera2D = $"../../van/Camera2D"
 @onready var signPos = global_position
-@onready var canvas_modulate: CanvasModulate = $"../../CanvasModulate"
 @onready var worldLight: DirectionalLight2D = $"../../DirectionalLight2D"
 var lightDistance: float = 100.0
 

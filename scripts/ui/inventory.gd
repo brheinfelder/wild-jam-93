@@ -6,13 +6,14 @@ var inventorySlots: Array[Panel] = []
 var activeSlot: int = 0
 var spriteDisplay: PackedScene = load("res://scenes/ui components/spriteDisplay.tscn")
 
+@onready var selectedSlot: PanelContainer = $SelectedSlot
 @onready var hotbar := $"."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	gameStateManager.inventory = $"."
-	inventorySlots.resize(gameStateManager.inventory_size)
-	for i in gameStateManager.inventory_size:
+	inventorySlots.resize(gameStateManager.stats["INVENTORY"]+3)
+	for i in gameStateManager.stats["INVENTORY"]+3:
 		var slot := Panel.new()
 		slot.custom_minimum_size = Vector2(slotSize,slotSize)
 		hotbar.add_child(slot)
@@ -38,7 +39,7 @@ func _input(event: InputEvent) -> void:
 
 func cycle_slot(dif: int) -> void:
 	var oldSlot = activeSlot
-	activeSlot = wrapi(activeSlot+dif,0,gameStateManager.inventory_size)
+	activeSlot = wrapi(activeSlot+dif,0,gameStateManager.stats["INVENTORY"]+3)
 	redrawSlot(activeSlot)
 	redrawSlot(oldSlot)
 
@@ -70,6 +71,7 @@ func redrawSlot(slot: int) -> void:
 		slotSprite.init()
 		pass
 	if slot == activeSlot:
-		var style := (inventorySlots[slot].get_theme_stylebox("panel") as StyleBoxFlat).duplicate()
-		style.bg_color += Color(0.2,0.2,0.2,0)
-		inventorySlots[slot].add_theme_stylebox_override("panel", style)
+		selectedSlot.reparent(inventorySlots[slot], false)
+		#var style := (inventorySlots[slot].get_theme_stylebox("panel") as StyleBoxFlat).duplicate()
+		#style.bg_color += Color(0.2,0.2,0.2,0)
+		#inventorySlots[slot].add_theme_stylebox_override("panel", style)

@@ -10,6 +10,9 @@ var cumMult: float = 1
 @onready var balanceLabel: Label = $Label
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
+func _ready() -> void:
+	updateBalance()
+
 func _process(_delta: float) -> void:
 	if balance != gameStateManager.balance:
 		updateBalance()

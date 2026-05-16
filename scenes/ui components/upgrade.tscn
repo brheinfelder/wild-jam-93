@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bh2s62aiuq7om"]
+
+[ext_resource type="Script" uid="uid://dcfy67mcjec5i" path="res://scripts/ui/shop_upgrade.gd" id="1_5abdo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5abdo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xm1oi"]
+
+[sub_resource type="FontVariation" id="FontVariation_jsq7b"]
+spacing_glyph = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_jsq7b"]
+font = SubResource("FontVariation_jsq7b")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h083h"]
+font_color = Color(0.85464174, 0.6089276, 0.23795512, 1)
+shadow_size = 0
+shadow_color = Color(0.13266617, 0.53217083, 0.32599092, 1)
+shadow_offset = Vector2(0, 2)
+
+[node name="Control" type="Control" unique_id=1624829190]
+custom_minimum_size = Vector2(350, 40)
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 350.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+script = ExtResource("1_5abdo")
+
+[node name="Button" type="Button" parent="." unique_id=319878287]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button" unique_id=1155770638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Level" type="Label" parent="Button/HBoxContainer" unique_id=313931493]
+layout_mode = 2
+text = "(0)"
+label_settings = SubResource("LabelSettings_5abdo")
+
+[node name="UpgradeName" type="Label" parent="Button/HBoxContainer" unique_id=2034870540]
+layout_mode = 2
+text = "UPGRADE"
+label_settings = SubResource("LabelSettings_xm1oi")
+
+[node name="Divider" type="Label" parent="Button/HBoxContainer" unique_id=1323775146]
+layout_mode = 2
+text = "..."
+label_settings = SubResource("LabelSettings_jsq7b")
+
+[node name="Cost" type="Label" parent="Button/HBoxContainer" unique_id=1816935003]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_h083h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

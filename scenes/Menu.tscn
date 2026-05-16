@@ -2,9 +2,67 @@
 
 [ext_resource type="Script" uid="uid://c0f2bunkn8c1b" path="res://scripts/menu.gd" id="1_xdvgc"]
 [ext_resource type="PackedScene" uid="uid://cicnsm8k4sqmc" path="res://scenes/game.tscn" id="2_upctu"]
+[ext_resource type="Texture2D" uid="uid://dlj8ciklrtdhn" path="res://assets/sprites/meteorite_falling-Sheet.png" id="3_11y2r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lumdm"]
 font_size = 128
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0tnf"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmdev"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6cxs"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaywf"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1abgu"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt8fu"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4umqm"]
+atlas = ExtResource("3_11y2r")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pp5m5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0tnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmdev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6cxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaywf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1abgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt8fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4umqm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=743312780]
 script = ExtResource("1_xdvgc")
@@ -42,5 +100,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 48
 text = "Play"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1344215894]
+position = Vector2(339.99997, 214)
+scale = Vector2(3.6875017, 3.6875017)
+sprite_frames = SubResource("SpriteFrames_pp5m5")
+autoplay = "default"
+frame_progress = 0.54089427
 
 [connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

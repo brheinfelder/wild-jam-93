@@ -5,167 +5,9 @@
 [ext_resource type="Script" uid="uid://csqyaayb6d5x8" path="res://scripts/orderManager.gd" id="2_x4jx1"]
 [ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="3_gdt2y"]
 [ext_resource type="Resource" uid="uid://b08auyvdqo0wh" path="res://resources/orders/greenMeteorOrder.tres" id="4_wm3ai"]
-[ext_resource type="Script" uid="uid://b5glabbq8034x" path="res://scripts/balance.gd" id="5_8dubc"]
-[ext_resource type="PackedScene" uid="uid://q02lr4x1ac82" path="res://scenes/ui components/spriteDisplay.tscn" id="6_8dubc"]
 [ext_resource type="Resource" uid="uid://c1litaf1esnj8" path="res://resources/orders/blueMeteorOrder.tres" id="6_cgfq5"]
 [ext_resource type="Resource" uid="uid://vtmxrsb5lp77" path="res://resources/orders/redMeteorOrder.tres" id="7_7dvkv"]
-[ext_resource type="SpriteFrames" uid="uid://b8huwaxe358si" path="res://assets/sprites/coinAnim.tres" id="7_p7vwb"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wm3ai"]
-font_size = 32
-shadow_size = 0
-shadow_color = Color(0.45064855, 0.4506482, 0.45064825, 1)
-shadow_offset = Vector2(0, 3)
-
-[sub_resource type="Animation" id="Animation_8dubc"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:label_settings:font_color:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:label_settings:font_color:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:label_settings:font_color:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Label:label_settings:font_color:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_ktti3"]
-resource_name = "gain"
-length = 0.3
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:label_settings:font_color:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.016666668, -0.00021786823, 0.03333334, 0.0004357365, 1.0039216, -0.041666668, -0.08366014, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:label_settings:font_color:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.5019608, -0.016666668, -0.00021786823, 0.03333334, 0.0004357365, 1.0039216, -0.041666668, -0.16732028, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:label_settings:font_color:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.016666668, -0.00021786823, 0.03333334, 0.0004357365, 1.0039216, -0.041666668, -0.16732028, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Label:label_settings:font_color:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.016666668, 0, 0.03333334, 0, 1, -0.041666668, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-
-[sub_resource type="Animation" id="Animation_p7vwb"]
-resource_name = "loss"
-length = 0.3
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:label_settings:font_color:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.5019608, -0.041666668, 0.08300653, 0, 0, 1.0039216, -0.041666668, -0.08366014, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:label_settings:font_color:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.041666668, 0.16666667, 0, 0, 1.0039216, -0.041666668, -0.16732028, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:label_settings:font_color:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.041666668, 0.16666667, 0, 0, 1.0039216, -0.041666668, -0.16732028, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Label:label_settings:font_color:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.041666668, 0, 0, 0, 1, -0.041666668, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.1, 0.3)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktti3"]
-_data = {
-&"RESET": SubResource("Animation_8dubc"),
-&"gain": SubResource("Animation_ktti3"),
-&"loss": SubResource("Animation_p7vwb")
-}
+[ext_resource type="PackedScene" uid="uid://dh5m88wcgxbul" path="res://scenes/ui components/balance.tscn" id="8_ktti3"]
 
 [sub_resource type="Animation" id="Animation_qsv74"]
 length = 0.001
@@ -276,6 +118,10 @@ grow_vertical = 2
 alignment = 1
 script = ExtResource("1_nt7q6")
 
+[node name="SelectedSlot" type="PanelContainer" parent="CanvasLayer/Inventory" unique_id=1318461222]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
 [node name="Orders" type="VBoxContainer" parent="CanvasLayer" unique_id=77705353]
 offset_left = -151.0
 offset_right = -149.0
@@ -283,9 +129,7 @@ offset_bottom = 40.0
 script = ExtResource("2_x4jx1")
 orderPool = Array[ExtResource("3_gdt2y")]([ExtResource("4_wm3ai"), ExtResource("6_cgfq5"), ExtResource("7_7dvkv")])
 
-[node name="Balance" type="HBoxContainer" parent="CanvasLayer" unique_id=1711602086]
-custom_minimum_size = Vector2(0, 40)
-layout_direction = 2
+[node name="Balance" parent="CanvasLayer" unique_id=1921552481 instance=ExtResource("8_ktti3")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -294,23 +138,6 @@ offset_top = -60.0
 offset_right = 29.5
 offset_bottom = -10.0
 grow_horizontal = 2
-alignment = 1
-script = ExtResource("5_8dubc")
-
-[node name="SubViewportContainer" parent="CanvasLayer/Balance" unique_id=679689018 instance=ExtResource("6_8dubc")]
-layout_mode = 2
-size_flags_vertical = 4
-spriteFrames = ExtResource("7_p7vwb")
-badgeColor = Color(0, 0, 0, 0)
-
-[node name="Label" type="Label" parent="CanvasLayer/Balance" unique_id=666246786]
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_wm3ai")
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Balance" unique_id=1831035515]
-libraries/ = SubResource("AnimationLibrary_ktti3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1112377448]
 libraries/ = SubResource("AnimationLibrary_vsj0x")

@@ -1,6 +1,6 @@
 extends Node
 
-var orderResource: order
+@export var orderResource: order
 @onready var timer: ProgressBar = $Panel/timer
 @onready var gradient: Gradient = (load("res://assets/ui/progress.tres") as GradientTexture1D).gradient
 @onready var gain: Label = $Panel/Control/gain
@@ -13,7 +13,7 @@ var active: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if !orderResource.remainingTime:
+	if !orderResource.remainingTime and active:
 		orderResource.remainingTime = orderResource.time
 	gain.text = str(orderResource.moneyGain)
 	loss.text = str(orderResource.moneyLoss)
@@ -46,6 +46,7 @@ func orderSuccess() -> void:
 	print("Order success! +"+str(orderResource.moneyGain))
 	gameStateManager.orderManager.orders.erase(self)
 	gameStateManager.balance += orderResource.moneyGain
+	gameStateManager.gameStats["gains"] += orderResource.moneyGain
 	anim.play("pass_order")
 	await anim.animation_finished
 	anim.play("shrink")
@@ -56,6 +57,7 @@ func orderFailed() -> void:
 	print("Order failed! -"+str(orderResource.moneyLoss))
 	gameStateManager.orderManager.orders.erase(self)
 	gameStateManager.balance -= orderResource.moneyLoss
+	gameStateManager.gameStats["losses"] -= orderResource.moneyGain
 	anim.play("fail_order")
 	await anim.animation_finished
 	anim.play("shrink")

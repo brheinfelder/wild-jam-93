@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dh5m88wcgxbul"]
+
+[ext_resource type="Script" uid="uid://b5glabbq8034x" path="res://scripts/balance.gd" id="1_tbhfn"]
+[ext_resource type="PackedScene" uid="uid://q02lr4x1ac82" path="res://scenes/ui components/spriteDisplay.tscn" id="2_sbyvn"]
+[ext_resource type="SpriteFrames" uid="uid://b8huwaxe358si" path="res://assets/sprites/coinAnim.tres" id="3_xgxkx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wm3ai"]
+font_size = 32
+shadow_size = 0
+shadow_color = Color(0.45064855, 0.4506482, 0.45064825, 1)
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="Animation" id="Animation_8dubc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ktti3"]
+resource_name = "gain"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.5019608, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p7vwb"]
+resource_name = "loss"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.5019608, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktti3"]
+_data = {
+&"RESET": SubResource("Animation_8dubc"),
+&"gain": SubResource("Animation_ktti3"),
+&"loss": SubResource("Animation_p7vwb")
+}
+
+[node name="Balance" type="HBoxContainer" unique_id=1921552481]
+custom_minimum_size = Vector2(0, 40)
+layout_direction = 2
+offset_right = 59.0
+offset_bottom = 50.0
+alignment = 1
+script = ExtResource("1_tbhfn")
+
+[node name="SubViewportContainer" parent="." unique_id=679689018 instance=ExtResource("2_sbyvn")]
+layout_mode = 2
+size_flags_vertical = 4
+spriteFrames = ExtResource("3_xgxkx")
+badgeColor = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="." unique_id=246284503]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_wm3ai")
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=771969327]
+libraries/ = SubResource("AnimationLibrary_ktti3")

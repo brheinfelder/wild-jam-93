@@ -3,7 +3,7 @@ extends VBoxContainer
 var orders: Array[Node] = []
 var orderScene: PackedScene = load("res://scenes/ui components/order.tscn")
 @export var orderPool: Array[order] = []
-var maxOrders: int = 20
+var maxOrders: int = 1
 var maxDisplayOrders: int = 8
 var orderCount: int
 var orderGenChance: float = 0.3
