@@ -7,11 +7,11 @@ var orderPool: Array[order] = []
 @export var meteorOrderPool: Array[order] = []
 @export var splitOrderPool: Array[order] = []
 @export var cutOrderPool: Array[order] = []
-var maxOrders: int = 1
+var maxOrders: int = 10
 var maxDisplayOrders: int = 8
 var orderCount: int
 var orderGenChance: float = 0.3
-var orderGenDelay: float = 0.1
+var orderGenDelay: float = 1
 var orderTimer: float
 
 func _ready() -> void:
