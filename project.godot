@@ -23,7 +23,7 @@ Ui="*uid://jxlilon2gqr7"
 [display]
 
 window/size/viewport_width=896
-window/size/viewport_height=504
+window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 
 [global_group]

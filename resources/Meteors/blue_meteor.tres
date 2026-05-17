@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MeteorType" format=3 uid="uid://ddlfpr5083wos"]
 
-[ext_resource type="Resource" uid="uid://crng1d66v30xl" path="res://resources/inventoryResources/blueMeteor.tres" id="1_8lpmn"]
+[ext_resource type="Resource" uid="uid://crng1d66v30xl" path="res://resources/inventoryResources/blue/blueMeteor.tres" id="1_8lpmn"]
 [ext_resource type="Script" uid="uid://cmfe8vqsjpldo" path="res://scripts/types/meteor_type.gd" id="2_ax3r0"]
 [ext_resource type="Texture2D" uid="uid://cfrhi5eu0egf8" path="res://assets/sprites/meteorite_falling_blue-Sheet.png" id="3_8lpmn"]
 

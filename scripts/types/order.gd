@@ -7,3 +7,7 @@ var remainingTime: float
 @export var moneyGain: int
 @export var moneyLoss: int
 @export var bounty: bool
+@export var probability: float = 1
+
+@export var quote: String
+@export var author: String

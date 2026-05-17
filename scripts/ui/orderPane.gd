@@ -1,7 +1,7 @@
 extends Node
 
 @export var orderResource: order
-@onready var timer: ProgressBar = $Panel/timer
+@onready var timer: ProgressBar = $Panel/MarginContainer/timer
 @onready var gradient: Gradient = (load("res://assets/ui/progress.tres") as GradientTexture1D).gradient
 @onready var gain: Label = $Panel/Control/gain
 @onready var loss: Label = $Panel/Control/loss
@@ -19,6 +19,7 @@ func _ready() -> void:
 	loss.text = str(orderResource.moneyLoss)
 	icon.spriteFrames = orderResource.resource.sprite
 	icon.badgeColor = orderResource.resource.color
+	icon.polishOverlay = orderResource.resource.polished
 	$Panel/BountyBorder.visible = orderResource.bounty
 	icon.init()
 	anim.play("RESET")
@@ -44,7 +45,10 @@ func _process(delta: float) -> void:
 func orderSuccess() -> void:
 	active = false
 	print("Order success! +"+str(orderResource.moneyGain))
-	gameStateManager.orderManager.orders.erase(self)
+	if !orderResource.bounty:
+		gameStateManager.orderManager.orders.erase(self)
+	else:
+		gameStateManager.orderManager.bounties.erase(self)
 	gameStateManager.balance += orderResource.moneyGain
 	gameStateManager.gameStats["gains"] += orderResource.moneyGain
 	anim.play("pass_order")
@@ -55,7 +59,10 @@ func orderSuccess() -> void:
 	
 func orderFailed() -> void:
 	print("Order failed! -"+str(orderResource.moneyLoss))
-	gameStateManager.orderManager.orders.erase(self)
+	if !orderResource.bounty:
+		gameStateManager.orderManager.orders.erase(self)
+	else:
+		gameStateManager.orderManager.bounties.erase(self)
 	gameStateManager.balance -= orderResource.moneyLoss
 	gameStateManager.gameStats["losses"] -= orderResource.moneyGain
 	anim.play("fail_order")

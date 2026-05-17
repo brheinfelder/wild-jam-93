@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://l568jhiy2wxy"]
+
+[ext_resource type="Resource" uid="uid://dsp4xvxnvajyd" path="res://resources/inventoryResources/red/redSplit.tres" id="1_f1hcw"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="2_1cr40"]
+
+[resource]
+script = ExtResource("2_1cr40")
+resource = ExtResource("1_f1hcw")
+time = 45
+moneyGain = 100
+moneyLoss = 50
+metadata/_custom_type_script = "uid://bshf2be4p0nle"

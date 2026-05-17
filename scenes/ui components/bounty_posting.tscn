@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://ex4kusdl7rav"]
+
+[ext_resource type="PackedScene" uid="uid://q02lr4x1ac82" path="res://scenes/ui components/spriteDisplay.tscn" id="1_8ge6v"]
+[ext_resource type="Texture2D" uid="uid://c4mdy33fxvo4f" path="res://assets/sprites/paper_9-slice.png" id="1_dxpur"]
+[ext_resource type="Script" uid="uid://d0atroii8ehsh" path="res://scripts/ui/bounty_posting.gd" id="1_sqr3j"]
+[ext_resource type="Theme" uid="uid://tmq2tot38p3k" path="res://assets/ui/Theme.tres" id="2_02hmu"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="2_omevi"]
+
+[sub_resource type="Resource" id="Resource_bfhnn"]
+script = ExtResource("2_omevi")
+time = 300
+moneyGain = 500
+moneyLoss = 500
+bounty = true
+quote = "That's my product"
+author = "W. White"
+metadata/_custom_type_script = "uid://bshf2be4p0nle"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_02hmu"]
+texture = ExtResource("1_dxpur")
+texture_margin_left = 6.0
+texture_margin_top = 5.0
+texture_margin_right = 8.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(1, 1, 46, 47)
+
+[sub_resource type="Theme" id="Theme_sqr3j"]
+Panel/styles/panel = SubResource("StyleBoxTexture_02hmu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxpur"]
+font_color = Color(0.30323282, 0.30323282, 0.30323282, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_02hmu"]
+font_color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sqr3j"]
+font_color = Color(0, 0.5019608, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_omevi"]
+font_color = Color(0.5019608, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfhnn"]
+font_color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1cfu5"]
+font_color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+
+[node name="Bounty Posting" type="Control" unique_id=969505447]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sqr3j")
+bounty = SubResource("Resource_bfhnn")
+
+[node name="Panel" type="Panel" parent="." unique_id=508349545]
+custom_minimum_size = Vector2(330, 45)
+layout_mode = 0
+offset_right = 323.0
+offset_bottom = 42.0
+mouse_filter = 1
+theme = SubResource("Theme_sqr3j")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=981606432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=793519192]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/HBoxContainer" unique_id=1053643172]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme = ExtResource("2_02hmu")
+
+[node name="SubViewportContainer" parent="Panel/MarginContainer/HBoxContainer/Panel" unique_id=679689018 instance=ExtResource("1_8ge6v")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 35.0
+offset_bottom = 35.0
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer" unique_id=338760180]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/MarginContainer" unique_id=102243388]
+layout_mode = 2
+alignment = 1
+
+[node name="Quote" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=968873920]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_dxpur")
+
+[node name="Author" type="Label" parent="Panel/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1835567262]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_02hmu")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1310868818]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer2" unique_id=428528109]
+custom_minimum_size = Vector2(90, 17)
+layout_mode = 2
+
+[node name="gain" type="Label" parent="Panel/MarginContainer/VBoxContainer2/Control" unique_id=694406633]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 36.0
+grow_vertical = 2
+text = "Gain"
+label_settings = SubResource("LabelSettings_sqr3j")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="loss" type="Label" parent="Panel/MarginContainer/VBoxContainer2/Control" unique_id=1208673278]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "loss"
+label_settings = SubResource("LabelSettings_omevi")
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer2/Control" unique_id=116325622]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "/"
+label_settings = SubResource("LabelSettings_bfhnn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Panel/MarginContainer/VBoxContainer2" unique_id=1870270029]
+layout_mode = 2
+text = "20 mins"
+label_settings = SubResource("LabelSettings_1cfu5")
+horizontal_alignment = 1

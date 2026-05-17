@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://jgm6fy8gk6sf" path="res://assets/sprites/glowing_meteorite-Sheet.png" id="1_funk1"]
 [ext_resource type="Script" uid="uid://ckd7jaroqxiqf" path="res://scripts/splitting_game.gd" id="1_tth6h"]
-[ext_resource type="Resource" uid="uid://b6hwchfcsvske" path="res://resources/inventoryResources/redMeteor.tres" id="2_6kfdv"]
+[ext_resource type="Resource" uid="uid://b6hwchfcsvske" path="res://resources/inventoryResources/red/redMeteor.tres" id="2_6kfdv"]
 [ext_resource type="Texture2D" uid="uid://c43jhyktrrn0t" path="res://assets/sprites/chisel_spawn-Sheet.png" id="2_xe6u2"]
+[ext_resource type="Texture2D" uid="uid://db6ec557tomof" path="res://assets/Backgrounds/wooden_background.png" id="3_ft8v8"]
 [ext_resource type="Texture2D" uid="uid://c88kuit22f2tc" path="res://assets/sprites/hammer_spawn-Sheet-Sheet.png" id="3_w5udu"]
 [ext_resource type="Texture2D" uid="uid://dfls25n3r3671" path="res://assets/sprites/chisel_hammer-Sheet.png" id="4_xehgl"]
+[ext_resource type="PackedScene" uid="uid://d2fb5stb0lfwp" path="res://scenes/ui components/keyBind.tscn" id="7_w6t5a"]
 
 [sub_resource type="Gradient" id="Gradient_tth6h"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -322,15 +324,15 @@ gradient = SubResource("Gradient_6kfdv")
 script = ExtResource("1_tth6h")
 resource = ExtResource("2_6kfdv")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1168172857]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=670598411]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 896.0
-offset_bottom = 504.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.28860182, 0.13882035, 0, 1)
+texture = ExtResource("3_ft8v8")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1215917469]
 position = Vector2(0, 56.085)
@@ -398,3 +400,11 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 8.0
 grow_vertical = 2
+
+[node name="CenterContainer" parent="." unique_id=1413837237 instance=ExtResource("7_w6t5a")]
+offset_left = 715.0
+offset_top = 61.0
+offset_right = 784.52625
+offset_bottom = 101.0
+pulse = true
+bindScale = 2

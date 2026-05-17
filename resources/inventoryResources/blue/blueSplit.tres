@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="inventoryResource" format=3 uid="uid://dborhy67ogl6g"]
+
+[ext_resource type="Resource" uid="uid://bspbrr2wrrh3a" path="res://resources/inventoryResources/blue/blueCut.tres" id="1_aoalt"]
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_q7xuc"]
+[ext_resource type="Texture2D" uid="uid://dfenfcvwd5r6h" path="res://assets/sprites/glowing_meteorite_blue-Sheet.png" id="2_aoalt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8nxh"]
+atlas = ExtResource("2_aoalt")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rijta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8nxh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_q7xuc")
+id = "blueSplit"
+sprite = SubResource("SpriteFrames_rijta")
+color = Color(0, 0, 0.5019608, 1)
+cut = ExtResource("1_aoalt")
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"

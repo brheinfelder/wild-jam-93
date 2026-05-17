@@ -68,10 +68,12 @@ func redrawSlot(slot: int) -> void:
 	if currentInventory[slot]:
 		slotSprite.spriteFrames = currentInventory[slot].sprite
 		slotSprite.badgeColor = currentInventory[slot].color
+		slotSprite.polishOverlay = currentInventory[slot].polished
 		slotSprite.init()
 	else:
 		slotSprite.spriteFrames = null
 		slotSprite.badgeColor = Color(0,0,0,0)
+		slotSprite.polishOverlay = false
 		slotSprite.init()
 		pass
 	if slot == activeSlot:

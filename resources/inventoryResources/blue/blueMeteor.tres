@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="inventoryResource" format=3 uid="uid://crng1d66v30xl"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="2_7t57v"]
+[ext_resource type="Resource" uid="uid://dborhy67ogl6g" path="res://resources/inventoryResources/blue/blueSplit.tres" id="3_ssaxb"]
+[ext_resource type="SpriteFrames" uid="uid://t288515n4iwr" path="res://assets/sprites/meteorite.tres" id="4_nr0uy"]
+
+[resource]
+script = ExtResource("2_7t57v")
+id = "blue"
+sprite = ExtResource("4_nr0uy")
+color = Color(0, 0, 0.5019608, 1)
+split = ExtResource("3_ssaxb")
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"

@@ -2,12 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cmfe8vqsjpldo" path="res://scripts/types/meteor_type.gd" id="1_8dbat"]
 [ext_resource type="Resource" uid="uid://ddlfpr5083wos" path="res://resources/Meteors/blue_meteor.tres" id="2_8dbat"]
+[ext_resource type="Resource" uid="uid://dvksvrs6kkqo" path="res://resources/Meteors/alienMeteor.tres" id="3_7p407"]
 [ext_resource type="Script" uid="uid://c46t31ftduemi" path="res://scripts/types/biomeType.gd" id="3_dqw33"]
 [ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="4_5g77k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dbat"]
 texture = ExtResource("4_5g77k")
-5:2/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+11:1/0 = 0
+10:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7p407"]
 sources/0 = SubResource("TileSetAtlasSource_8dbat")
@@ -17,5 +21,5 @@ script = ExtResource("3_dqw33")
 name = "tundra"
 startDistance = 300
 tileSet = SubResource("TileSet_7p407")
-meteors = Array[ExtResource("1_8dbat")]([ExtResource("2_8dbat")])
+meteors = Array[ExtResource("1_8dbat")]([ExtResource("2_8dbat"), ExtResource("3_7p407")])
 metadata/_custom_type_script = "uid://c46t31ftduemi"

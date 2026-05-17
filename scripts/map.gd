@@ -17,7 +17,7 @@ func _ready() -> void:
 	prepareBiomeList()
 	last_cam_tile = Vector2(floor(camera.get_screen_center_position().x/TILESIZEX),floor(camera.get_screen_center_position().y/TILESIZEY))
 	var viewSize := get_viewport_rect().size / camera.zoom
-	mapSize = viewSize/Vector2(TILESIZEX,TILESIZEY) + Vector2(10,10)
+	mapSize = viewSize/Vector2(TILESIZEX,TILESIZEY) + Vector2(20,20)
 	generateMap()
 	pass # Replace with function body.
 
@@ -79,7 +79,7 @@ func generateMap() -> void:
 func mapDif(dir: Vector2) -> void:
 	if abs(dir.x) > 0:
 		var eraseColumn = last_cam_tile.x - dir.x*mapSize.x/2 - dir.x
-		var createColumn = last_cam_tile.x + dir.x*mapSize.x/2 - dir.x
+		var createColumn = last_cam_tile.x + dir.x*mapSize.x/2 - dir.x*2
 		var startY = (last_cam_tile - mapSize/2).y
 		for j in range(mapSize.y):
 			var coord = Vector2(eraseColumn, startY+j)
@@ -87,7 +87,7 @@ func mapDif(dir: Vector2) -> void:
 			generateTile(Vector2(createColumn, startY+j))
 	if abs(dir.y) > 0:
 		var eraseRow = last_cam_tile.y - dir.y*mapSize.y/2 - dir.y
-		var createRow = last_cam_tile.y + dir.y*mapSize.y/2 - dir.y
+		var createRow = last_cam_tile.y + dir.y*mapSize.y/2 - dir.y*2
 		var startX = (last_cam_tile - mapSize/2).x
 		for i in range(mapSize.x):
 			var coord = Vector2(startX+i, eraseRow)

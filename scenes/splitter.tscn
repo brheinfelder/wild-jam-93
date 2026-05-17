@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://dv0ukdc0brmqu"]
 
 [ext_resource type="Script" uid="uid://bgymcpr33j340" path="res://scripts/splitterBuilding.gd" id="1_p8h7s"]
-[ext_resource type="Texture2D" uid="uid://c3nfum6wau21c" path="res://assets/sprites/walmart.png" id="1_q3jjl"]
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="2_p8h7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3jjl"]
-size = Vector2(1508.7783, 1101)
+size = Vector2(530.1113, 428.16666)
 
 [node name="Node2D" type="Node2D" unique_id=741331287]
 script = ExtResource("1_p8h7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1631798867]
-scale = Vector2(0.049046304, 0.049046323)
-texture = ExtResource("1_q3jjl")
+texture = ExtResource("2_p8h7s")
+region_enabled = true
+region_rect = Rect2(68, 90, 28, 22)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=541146611 groups=["building", "staticCollision"]]
 scale = Vector2(0.049046304, 0.049046323)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=492486263]
+position = Vector2(0, 10.194444)
 shape = SubResource("RectangleShape2D_q3jjl")

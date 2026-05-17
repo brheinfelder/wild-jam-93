@@ -22,7 +22,9 @@ var stats := {
 	"TRUCK_SPEED": 0,
 	"TRUCK_ACCEL": 0,
 	"INVENTORY": 0,
-	"SHARP_CHISEL": 0
+	"SHARP_CHISEL": 0,
+	"POLISHING_SPEED":0,
+	"CUT_ACCURACY":0
 }
 
 var gameStats := {
@@ -42,3 +44,16 @@ var unlocks := {
 
 func _ready() -> void:
 	inventoryItems.resize(stats["INVENTORY"]+3)
+	
+func reset() -> void:
+	gameActive = false
+	day = 1
+	stats["TRUCK_SPEED"] = 0
+	stats["TRUCK_ACCEL"] = 0
+	stats["INVENTORY"] = 0
+	stats["SHARP_CHISEL"] = 0
+	stats["POLISHING_SPEED"] = 0
+	stats["CUT_ACCURACY"] = 0
+	unlocks["cracking"] = false
+	unlocks["slicing"] = false
+	unlocks["polishing"] = false

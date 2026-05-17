@@ -2,6 +2,7 @@ extends SubViewportContainer
 
 @export var spriteFrames: SpriteFrames
 @export var badgeColor: Color
+@export var polishOverlay: bool
 
 func _ready() -> void:
 	init()
@@ -16,3 +17,5 @@ func init() -> void:
 	if badgeColor:
 		$Sprite2D.modulate = badgeColor
 		$Sprite2D.visible = true
+	if polishOverlay:
+		$SubViewport/PolishOverlay.visible = true

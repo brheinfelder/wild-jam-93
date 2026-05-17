@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://66fuoqgwuflb"]
+
+[ext_resource type="Script" uid="uid://bi1hlc0vpiyy8" path="res://scripts/game_over.gd" id="1_dh54o"]
+[ext_resource type="Texture2D" uid="uid://db6ec557tomof" path="res://assets/Backgrounds/wooden_background.png" id="1_ouftm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ouftm"]
+font_size = 48
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1583256232]
+script = ExtResource("1_dh54o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1804075871]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ouftm")
+
+[node name="Label" type="Label" parent="." unique_id=426201156]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -21.0
+offset_right = 144.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME RESULT"
+label_settings = SubResource("LabelSettings_ouftm")

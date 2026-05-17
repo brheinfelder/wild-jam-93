@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bh2s62aiuq7om" path="res://scenes/ui components/upgrade.tscn" id="1_ca2qj"]
 [ext_resource type="Script" uid="uid://cmgi2vir66lx2" path="res://scenes/nextNightButton.gd" id="1_kg3i0"]
+[ext_resource type="Texture2D" uid="uid://db6ec557tomof" path="res://assets/Backgrounds/wooden_background.png" id="1_neyh7"]
 [ext_resource type="PackedScene" uid="uid://dh5m88wcgxbul" path="res://scenes/ui components/balance.tscn" id="2_hoavx"]
+[ext_resource type="Script" uid="uid://b43msiyg7r4cl" path="res://scripts/ui/bounty_board.gd" id="2_jbbiy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hmjja"]
 font_size = 48
@@ -17,16 +19,27 @@ shadow_color = Color(0, 0.5019608, 0, 1)
 shadow_offset = Vector2(0, 5)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=881117814]
+layer = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1701741340]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_neyh7")
 
 [node name="Bounty Board" type="MarginContainer" parent="." unique_id=602473595]
+z_index = 10
+z_as_relative = false
 custom_minimum_size = Vector2(300, 0)
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 300.0
-grow_vertical = 2
+offset_right = 340.0
+offset_bottom = 64.0
 theme_override_constants/margin_left = 10
+script = ExtResource("2_jbbiy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Bounty Board" unique_id=241069457]
+custom_minimum_size = Vector2(330, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Bounty Board/VBoxContainer" unique_id=2054274659]
@@ -121,6 +134,24 @@ upgradeSlug = "SHARP_CHISEL"
 unlockSlug = "cracking"
 baseCost = 50
 costScaling = 150
+maxLevel = 10
+
+[node name="Polishing" parent="Shop/VBoxContainer/GridContainer" unique_id=1976270544 instance=ExtResource("1_ca2qj")]
+layout_mode = 2
+upgradeName = "POLISHING SPEED"
+upgradeSlug = "POLISHING_SPEED"
+unlockSlug = "polishing"
+baseCost = 300
+costScaling = 500
+maxLevel = 10
+
+[node name="Cutting" parent="Shop/VBoxContainer/GridContainer" unique_id=1954911985 instance=ExtResource("1_ca2qj")]
+layout_mode = 2
+upgradeName = "SHARP EYE"
+upgradeSlug = "CUT_ACCURACY"
+unlockSlug = "slicing"
+baseCost = 500
+costScaling = 500
 maxLevel = 10
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

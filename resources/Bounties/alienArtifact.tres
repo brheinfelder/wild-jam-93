@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://bf48saa1vcajq"]
+
+[ext_resource type="Resource" uid="uid://c4dt1vinria2w" path="res://resources/inventoryResources/alienArtifact.tres" id="1_724a8"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="1_hktxx"]
+
+[resource]
+script = ExtResource("1_hktxx")
+resource = ExtResource("1_724a8")
+time = 600
+moneyGain = 500
+moneyLoss = 500
+bounty = true
+probability = 0.5
+quote = "They're hiding somethin..."
+author = "-Weird Al"
+metadata/_custom_type_script = "uid://bshf2be4p0nle"

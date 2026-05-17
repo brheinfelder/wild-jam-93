@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://dsqqwivktydu1"]
+
+[ext_resource type="Resource" uid="uid://c4dt1vinria2w" path="res://resources/inventoryResources/alienArtifact.tres" id="1_e2t8r"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="2_qdcn5"]
+
+[resource]
+script = ExtResource("2_qdcn5")
+resource = ExtResource("1_e2t8r")
+time = 600
+moneyGain = 3000
+moneyLoss = 15000
+bounty = true
+probability = 0.5
+quote = "We have a vested interest"
+author = "-3 Letter Agency"
+metadata/_custom_type_script = "uid://bshf2be4p0nle"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="unlock" format=3 uid="uid://cescywuddov3s"]
+
+[ext_resource type="Script" uid="uid://bltueqr8aqteu" path="res://scripts/types/unlock.gd" id="1_klfka"]
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="1_kllun"]
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="2_6fhie"]
+[ext_resource type="Resource" uid="uid://dborhy67ogl6g" path="res://resources/inventoryResources/blue/blueSplit.tres" id="3_70hnx"]
+[ext_resource type="Resource" uid="uid://dsp4xvxnvajyd" path="res://resources/inventoryResources/red/redSplit.tres" id="4_63skp"]
+[ext_resource type="Resource" uid="uid://bvgcbwmgsvuie" path="res://resources/inventoryResources/green/greenSplit.tres" id="5_ossx8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fhie"]
+atlas = ExtResource("1_kllun")
+region = Rect2(68, 90, 28, 22)
+
+[resource]
+script = ExtResource("1_klfka")
+Name = "SPLITTING"
+Description = "You now have the ability to split meteorites open at the anvil"
+Icon = SubResource("AtlasTexture_6fhie")
+Materials = Array[ExtResource("2_6fhie")]([ExtResource("3_70hnx"), ExtResource("4_63skp"), ExtResource("5_ossx8")])
+metadata/_custom_type_script = "uid://bltueqr8aqteu"

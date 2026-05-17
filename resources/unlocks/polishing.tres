@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="unlock" format=3 uid="uid://cesmftsxmkhvu"]
+
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="1_daq5r"]
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_v277o"]
+[ext_resource type="Script" uid="uid://bltueqr8aqteu" path="res://scripts/types/unlock.gd" id="2_daq5r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t7e6"]
+atlas = ExtResource("1_daq5r")
+region = Rect2(132, 93, 23, 19)
+
+[resource]
+script = ExtResource("2_daq5r")
+Name = "POLISHING"
+Description = "You now have the ability to polish materials at the polishing station"
+Icon = SubResource("AtlasTexture_2t7e6")
+metadata/_custom_type_script = "uid://bltueqr8aqteu"

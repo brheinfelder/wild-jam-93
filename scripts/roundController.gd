@@ -12,6 +12,12 @@ var operatingTimer : float = 0
 func _ready() -> void:
 	gameStateManager.seed = randi()
 	operatingTimer = 0
+	if !gameStateManager.unlocks["cracking"]:
+		$Splitter.queue_free()
+	if !gameStateManager.unlocks["polishing"]:
+		$Polisher.queue_free()
+	if !gameStateManager.unlocks["slicing"]:
+		$Slicer.queue_free()
 	if !gameStateManager.gameActive:
 		startRound()
 	pass

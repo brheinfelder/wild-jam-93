@@ -7,4 +7,5 @@ func _ready() -> void:
 	print_tree_pretty()
 
 func _on_button_pressed() -> void:
+	gameStateManager.reset()
 	gameStateManager.sceneManager.sceneTransition(nextScene.instantiate(), true)

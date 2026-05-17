@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="unlock" format=3 uid="uid://bfkxuq80bru3"]
+
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="1_eplvl"]
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_w8mnp"]
+[ext_resource type="Script" uid="uid://bltueqr8aqteu" path="res://scripts/types/unlock.gd" id="2_rwh12"]
+[ext_resource type="Resource" uid="uid://bspbrr2wrrh3a" path="res://resources/inventoryResources/blue/blueCut.tres" id="3_mcynx"]
+[ext_resource type="Resource" uid="uid://bjeyfb21fmu43" path="res://resources/inventoryResources/green/greenCut.tres" id="4_dn53v"]
+[ext_resource type="Resource" uid="uid://vgj8lfa0l0am" path="res://resources/inventoryResources/red/redCut.tres" id="5_8uy3n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpfhj"]
+atlas = ExtResource("1_eplvl")
+region = Rect2(100, 93, 23, 19)
+
+[resource]
+script = ExtResource("2_rwh12")
+Name = "CUTTING"
+Description = "You now have the ability to cut split meteorites at the cutting bench"
+Icon = SubResource("AtlasTexture_kpfhj")
+Materials = Array[ExtResource("1_w8mnp")]([ExtResource("3_mcynx"), ExtResource("4_dn53v"), ExtResource("5_8uy3n")])
+metadata/_custom_type_script = "uid://bltueqr8aqteu"

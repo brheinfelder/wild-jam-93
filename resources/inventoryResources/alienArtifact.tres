@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="inventoryResource" format=3 uid="uid://c4dt1vinria2w"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_d3j1p"]
+[ext_resource type="Texture2D" uid="uid://da85apwcuh4pa" path="res://assets/sprites/alien_artifact-Sheet.png" id="2_jowy3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7y8y"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnh4u"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bda7i"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4wjb"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtlhn"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8s4l"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8gn2"]
+atlas = ExtResource("2_jowy3")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tils5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7y8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnh4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bda7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4wjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtlhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8s4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8gn2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_d3j1p")
+id = "alien"
+sprite = SubResource("SpriteFrames_tils5")
+color = Color(0.5019608, 0, 0.5019608, 1)
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"

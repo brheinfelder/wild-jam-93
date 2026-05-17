@@ -1,0 +1,95 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://cckxdp5abl126"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_4ch8d"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="1_55aqs"]
+[ext_resource type="Resource" uid="uid://dsp4xvxnvajyd" path="res://resources/inventoryResources/red/redSplit.tres" id="2_dre6r"]
+[ext_resource type="Texture2D" uid="uid://jgm6fy8gk6sf" path="res://assets/sprites/glowing_meteorite-Sheet.png" id="3_wu6sr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfgbe"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82rgy"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq54i"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_483ig"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5rtt"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8r40"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3wfc"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ld6f"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m473w"]
+atlas = ExtResource("3_wu6sr")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s870w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfgbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82rgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq54i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_483ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5rtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8r40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3wfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ld6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m473w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_ba6qc"]
+script = ExtResource("1_4ch8d")
+id = "redPolished"
+sprite = SubResource("SpriteFrames_s870w")
+color = Color(0.5019608, 0, 0, 1)
+polished = true
+split = ExtResource("2_dre6r")
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"
+
+[resource]
+script = ExtResource("1_55aqs")
+resource = SubResource("Resource_ba6qc")
+time = 120
+moneyGain = 500
+quote = "This enough for one them rocks?"
+author = "-Passerby"
+metadata/_custom_type_script = "uid://bshf2be4p0nle"

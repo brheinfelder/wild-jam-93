@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://crhurw7sptehp"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_4s1mq"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="1_5e4an"]
+[ext_resource type="Texture2D" uid="uid://sql0ddp65om" path="res://assets/sprites/glowing_meteorite_green-Sheet.png" id="2_jnpkt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwfeu"]
+atlas = ExtResource("2_jnpkt")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyd8m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwfeu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_5d2qe"]
+script = ExtResource("1_4s1mq")
+id = "greenCutPolished"
+sprite = SubResource("SpriteFrames_vyd8m")
+color = Color(0, 0.5019608, 0, 1)
+polished = true
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"
+
+[resource]
+script = ExtResource("1_5e4an")
+resource = SubResource("Resource_5d2qe")
+time = 300
+moneyGain = 20
+quote = "My Grandson is from Space"
+author = "Ethel"
+metadata/_custom_type_script = "uid://bshf2be4p0nle"

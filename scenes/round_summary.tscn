@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://chk4phg563lur"]
 
 [ext_resource type="Texture2D" uid="uid://4drtklm1uuus" path="res://assets/sprites/report.png" id="1_aii4q"]
+[ext_resource type="Texture2D" uid="uid://db6ec557tomof" path="res://assets/Backgrounds/wooden_background.png" id="1_kl0d4"]
 [ext_resource type="Script" uid="uid://bdhs1rkjohnuk" path="res://scripts/ui/statusReport.gd" id="2_7lvju"]
 [ext_resource type="PackedScene" uid="uid://bbqtmia3ydaq" path="res://scenes/ui components/summaryItem.tscn" id="2_vwrxs"]
 
@@ -101,6 +102,14 @@ _data = {
 
 [node name="Node2D" type="CanvasLayer" unique_id=838735380]
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2143356676]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_kl0d4")
+
 [node name="Report" type="Sprite2D" parent="." unique_id=1012290070]
 position = Vector2(455.00003, 235)
 scale = Vector2(3, 3)
@@ -139,7 +148,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -126.0
-offset_top = -208.0
+offset_top = -249.0
 offset_right = 126.0
 grow_horizontal = 2
 grow_vertical = 0

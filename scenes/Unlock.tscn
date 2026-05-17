@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://8fwg5yao7xn2"]
+
+[ext_resource type="Script" uid="uid://u6dtxhrf3xcb" path="res://scripts/unlockScreen.gd" id="1_c3vst"]
+[ext_resource type="Texture2D" uid="uid://db6ec557tomof" path="res://assets/Backgrounds/wooden_background.png" id="1_nfbcl"]
+[ext_resource type="Resource" uid="uid://cesmftsxmkhvu" path="res://resources/unlocks/polishing.tres" id="2_swjlw"]
+[ext_resource type="Resource" uid="uid://cescywuddov3s" path="res://resources/unlocks/splitting.tres" id="3_cpxyr"]
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="3_knry4"]
+[ext_resource type="Resource" uid="uid://bfkxuq80bru3" path="res://resources/unlocks/cutting.tres" id="4_uh7xj"]
+[ext_resource type="Script" uid="uid://b3huf3rymkqtd" path="res://scripts/Upgradebutton.gd" id="7_uh7xj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swjlw"]
+atlas = ExtResource("3_knry4")
+region = Rect2(67, 90, 29, 22)
+
+[node name="Node2D" type="CanvasLayer" unique_id=215194013]
+
+[node name="Node2D" type="Control" parent="." unique_id=1179882622]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c3vst")
+polishing = ExtResource("2_swjlw")
+splitting = ExtResource("3_cpxyr")
+cutting = ExtResource("4_uh7xj")
+
+[node name="TextureRect" type="TextureRect" parent="Node2D" unique_id=922464324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nfbcl")
+
+[node name="Panel" type="Panel" parent="Node2D" unique_id=1434836308]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -102.0
+offset_right = 74.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Node2D/Panel" unique_id=2104385562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Panel/MarginContainer" unique_id=821672060]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Node2D/Panel/MarginContainer/VBoxContainer" unique_id=754241178]
+layout_mode = 2
+text = "UNLOCK NAME"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Panel/MarginContainer/VBoxContainer" unique_id=794059806]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_swjlw")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node2D/Panel/MarginContainer/VBoxContainer" unique_id=429467037]
+layout_mode = 2
+alignment = 1
+
+[node name="Desc" type="Label" parent="Node2D/Panel/MarginContainer/VBoxContainer" unique_id=593232294]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="Node2D/Panel/MarginContainer/VBoxContainer" unique_id=970624797]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OKAY"
+script = ExtResource("7_uh7xj")
+
+[connection signal="pressed" from="Node2D/Panel/MarginContainer/VBoxContainer/Button" to="Node2D/Panel/MarginContainer/VBoxContainer/Button" method="_on_pressed"]

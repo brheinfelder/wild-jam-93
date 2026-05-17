@@ -147,18 +147,17 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=738111856]
 script = ExtResource("1_8i0xm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1601881404]
-sprite_frames = SubResource("SpriteFrames_q01i1")
-autoplay = "default"
-frame_progress = 0.27879474
-
 [node name="crater" type="Sprite2D" parent="." unique_id=28916505]
-modulate = Color(0.9330968, 0.33906618, 0, 1)
-position = Vector2(1, -1.9999998)
+position = Vector2(1, -7.0000005)
 scale = Vector2(2.125, 2.1249998)
 texture = ExtResource("2_n3sop")
 region_enabled = true
 region_rect = Rect2(112, 16, 16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1601881404]
+sprite_frames = SubResource("SpriteFrames_q01i1")
+autoplay = "default"
+frame_progress = 0.27879474
 
 [node name="Area2D" type="Area2D" parent="." unique_id=199957202 groups=["pickup"]]
 

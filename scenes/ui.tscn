@@ -4,10 +4,16 @@
 [ext_resource type="Script" uid="uid://bao0lgrmp750h" path="res://scripts/ui/inventory.gd" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://csqyaayb6d5x8" path="res://scripts/orderManager.gd" id="2_x4jx1"]
 [ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="3_gdt2y"]
-[ext_resource type="Resource" uid="uid://b08auyvdqo0wh" path="res://resources/orders/greenMeteorOrder.tres" id="4_wm3ai"]
-[ext_resource type="Resource" uid="uid://c1litaf1esnj8" path="res://resources/orders/blueMeteorOrder.tres" id="6_cgfq5"]
-[ext_resource type="Resource" uid="uid://vtmxrsb5lp77" path="res://resources/orders/redMeteorOrder.tres" id="7_7dvkv"]
+[ext_resource type="Resource" uid="uid://c1litaf1esnj8" path="res://resources/orders/blue/blueMeteorOrder.tres" id="5_qsv74"]
+[ext_resource type="Resource" uid="uid://b08auyvdqo0wh" path="res://resources/orders/green/greenMeteorOrder.tres" id="6_h1mc3"]
+[ext_resource type="Resource" uid="uid://vtmxrsb5lp77" path="res://resources/orders/red/redMeteorOrder.tres" id="7_cof4p"]
+[ext_resource type="Resource" uid="uid://c4enbaymyasda" path="res://resources/orders/blue/blueSplitOrder.tres" id="8_f7tlh"]
 [ext_resource type="PackedScene" uid="uid://dh5m88wcgxbul" path="res://scenes/ui components/balance.tscn" id="8_ktti3"]
+[ext_resource type="Resource" uid="uid://4otsi137f6o6" path="res://resources/orders/green/greenSplitOrder.tres" id="9_8k7j3"]
+[ext_resource type="Resource" uid="uid://l568jhiy2wxy" path="res://resources/orders/red/redSplitOrder.tres" id="10_jkdwc"]
+[ext_resource type="Resource" uid="uid://c2pudw5ya3xow" path="res://resources/orders/blue/blueCutOrder.tres" id="11_rlppe"]
+[ext_resource type="Resource" uid="uid://chc5pee5h3mo5" path="res://resources/orders/green/greenCutOrder.tres" id="12_ycmcx"]
+[ext_resource type="Resource" uid="uid://d2pnb3jhbkn6m" path="res://resources/orders/red/redCutOrder.tres" id="13_kupmu"]
 
 [sub_resource type="Animation" id="Animation_qsv74"]
 length = 0.001
@@ -127,7 +133,9 @@ offset_left = -151.0
 offset_right = -149.0
 offset_bottom = 40.0
 script = ExtResource("2_x4jx1")
-orderPool = Array[ExtResource("3_gdt2y")]([ExtResource("4_wm3ai"), ExtResource("6_cgfq5"), ExtResource("7_7dvkv")])
+meteorOrderPool = Array[ExtResource("3_gdt2y")]([ExtResource("5_qsv74"), ExtResource("6_h1mc3"), ExtResource("7_cof4p")])
+splitOrderPool = Array[ExtResource("3_gdt2y")]([ExtResource("8_f7tlh"), ExtResource("9_8k7j3"), ExtResource("10_jkdwc")])
+cutOrderPool = Array[ExtResource("3_gdt2y")]([ExtResource("11_rlppe"), ExtResource("12_ycmcx"), ExtResource("13_kupmu")])
 
 [node name="Balance" parent="CanvasLayer" unique_id=1921552481 instance=ExtResource("8_ktti3")]
 anchors_preset = 5

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="order" format=3 uid="uid://b0cc16cwmqsvx"]
+
+[ext_resource type="Resource" uid="uid://bspbrr2wrrh3a" path="res://resources/inventoryResources/blue/blueCut.tres" id="1_5xavg"]
+[ext_resource type="Script" uid="uid://bshf2be4p0nle" path="res://scripts/types/order.gd" id="1_gaope"]
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="2_sff7h"]
+[ext_resource type="Texture2D" uid="uid://dfenfcvwd5r6h" path="res://assets/sprites/glowing_meteorite_blue-Sheet.png" id="3_m8crc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8nxh"]
+atlas = ExtResource("3_m8crc")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rijta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8nxh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_yxbx2"]
+script = ExtResource("2_sff7h")
+id = "blueSplitPolished"
+sprite = SubResource("SpriteFrames_rijta")
+color = Color(0, 0, 0.5019608, 1)
+polished = true
+cut = ExtResource("1_5xavg")
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"
+
+[resource]
+script = ExtResource("1_gaope")
+resource = SubResource("Resource_yxbx2")
+time = 300
+moneyGain = 500
+moneyLoss = 1000
+bounty = true
+probability = 0.5
+quote = "That's MY Formula"
+author = "W. White"
+metadata/_custom_type_script = "uid://bshf2be4p0nle"
