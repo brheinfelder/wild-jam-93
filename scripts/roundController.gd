@@ -10,6 +10,7 @@ var nextScene: PackedScene = load("res://scenes/round_summary.tscn")
 var operatingTimer : float = 0
 
 func _ready() -> void:
+	gameStateManager.seed = randi()
 	operatingTimer = 0
 	if !gameStateManager.gameActive:
 		startRound()
@@ -65,7 +66,7 @@ func endRound() -> void:
 	await animPlayer.animation_finished
 	animPlayer.play("RESET")
 	await gameStateManager.primaryUI.hideUI()
-	gameStateManager.sceneManager.sceneTransition(nextScene)
+	gameStateManager.sceneManager.sceneTransition(nextScene.instantiate())
 
 func sunset() -> void:
 	var time: float = 0

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Biome" format=3 uid="uid://un10jktrytu6"]
+
+[ext_resource type="Script" uid="uid://cmfe8vqsjpldo" path="res://scripts/types/meteor_type.gd" id="1_vklcb"]
+[ext_resource type="Script" uid="uid://c46t31ftduemi" path="res://scripts/types/biomeType.gd" id="2_gig6e"]
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="3_gig6e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h44xu"]
+texture = ExtResource("3_gig6e")
+2:0/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yo8am"]
+sources/0 = SubResource("TileSetAtlasSource_h44xu")
+
+[resource]
+script = ExtResource("2_gig6e")
+name = "shop"
+tileSet = SubResource("TileSet_yo8am")
+metadata/_custom_type_script = "uid://c46t31ftduemi"

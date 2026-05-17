@@ -8,7 +8,7 @@ var spawnLight: PointLight2D
 var state: String = "falling"
 var lifetime: float = 5.0
 @onready var collider := $Sprite2D/Area2D/CollisionShape2D
-var resource: inventoryResource
+var meteor: MeteorType
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cam = get_tree().get_first_node_in_group("camera")
@@ -20,6 +20,8 @@ func _ready() -> void:
 	spawnLight = $PointLight2D
 	spawnLight.energy = 0.0
 	spawnLight.visible = true
+	sprite.sprite_frames = meteor.sprite
+	sprite.play()
 	sprite.position = spawnOffset
 	sprite.visible = true
 
@@ -27,21 +29,15 @@ func _ready() -> void:
 var time = 0
 
 func _process(delta: float) -> void:
-	spawnLight.color = resource.color
+	spawnLight.color = meteor.color
+	$Sprite2D/PointLight2D.color = meteor.color
 	if state == "falling":
 		time+=delta
 		var progress = clampf(time/animDuration,0,1)
 		spawnLight.energy = lerp(0.0,2.0,progress)
 		sprite.position = spawnOffset.lerp(Vector2(0,0),progress)
-		if progress == 1.0:
-			time = 0
-			state = "landed"
-	if state == "landed":
-		$Sprite2D/Area2D.add_to_group("pickup")
-		time+=delta
-		var lifeProgress = clampf(time/lifetime,0,1)
-		spawnLight.energy = lerp(2,0,lifeProgress)
-		$Sprite2D/PointLight2D.energy = lerp(0.5,0.2,lifeProgress)
-		sprite.modulate.a = clampf(inverse_lerp(1.0, 0.9,lifeProgress),0,1)
-		if lifeProgress == 1.0:
+		if progress >= 1.0:
+			var pickup = meteor.invRes.spawn(true)
+			pickup.global_position = global_position
+			get_parent().add_child(pickup)
 			queue_free()

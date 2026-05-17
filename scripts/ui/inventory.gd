@@ -44,6 +44,10 @@ func cycle_slot(dif: int) -> void:
 	redrawSlot(oldSlot)
 
 func setInvSlot(item: inventoryResource, slot: int) -> void:
+	if currentInventory[slot]:
+		var droppedItem = currentInventory[slot].spawn()
+		droppedItem.global_position = gameStateManager.player.global_position
+		gameStateManager.sceneManager.loadedScene.add_child(droppedItem)
 	currentInventory[slot] = item
 	redrawSlot(slot)
 	

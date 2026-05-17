@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="inventoryResource" format=3 uid="uid://bvgcbwmgsvuie"]
+
+[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="1_50x6j"]
+[ext_resource type="Texture2D" uid="uid://sql0ddp65om" path="res://assets/sprites/glowing_meteorite_green-Sheet.png" id="2_50x6j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8gih"]
+atlas = ExtResource("2_50x6j")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8onev"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8gih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_50x6j")
+sprite = SubResource("SpriteFrames_8onev")
+color = Color(0, 0.5019608, 0, 1)
+metadata/_custom_type_script = "uid://duuwmqnvk86g3"

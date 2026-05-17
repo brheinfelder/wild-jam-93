@@ -10,4 +10,4 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	gameStateManager.day += 1
-	sceneManager.sceneTransition(game)
+	sceneManager.sceneTransition(game.instantiate())

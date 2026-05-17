@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://t288515n4iwr"]
 
-[ext_resource type="Texture2D" uid="uid://jgm6fy8gk6sf" path="res://assets/sprites/glowing_meteorite-Sheet.png" id="1_7jjka"]
+[ext_resource type="Texture2D" uid="uid://dfenfcvwd5r6h" path="res://assets/sprites/glowing_meteorite_blue-Sheet.png" id="1_7jjka"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yxtvm"]
 atlas = ExtResource("1_7jjka")
@@ -34,10 +34,6 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("1_7jjka")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rw4ri"]
-atlas = ExtResource("1_7jjka")
-region = Rect2(256, 0, 32, 32)
-
 [resource]
 animations = [{
 "frames": [{
@@ -64,9 +60,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vbrlv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rw4ri")
 }],
 "loop": true,
 "name": &"default",

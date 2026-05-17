@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var meteorPool: Array[inventoryResource] = []
+@export var meteorPool: Array[MeteorType] = []
 @export var spawn_radius_min := 50
 @export var spawn_radius_max := 400
 @export var meteor_scene: PackedScene
@@ -16,15 +16,22 @@ func _process(delta: float) -> void:
 	_timer += delta
 	if _timer >= spawn_interval:
 		_timer = 0.0
-		_spawn_meteor()
+		spawnMeteor(1)
 	pass
 
-func _spawn_meteor() -> void:
+func spawnMeteor(i: int) -> void:
+	if i > 3:
+		return
 	var angle := randf() * TAU
 	var dist  := randf_range(spawn_radius_min, spawn_radius_max)
 	var land_pos := player.global_position + Vector2(cos(angle), sin(angle)) * dist
 	
 	var meteor: Node2D = meteor_scene.instantiate()
+	var spawnBiome: Biome = gameStateManager.biomeManager.getTileBiome(gameStateManager.biomeManager.toTileSpace(land_pos))
+	var selectedMeteor: MeteorType = spawnBiome.randomMeteor()
+	if !selectedMeteor:
+		spawnMeteor(i+1)
+		return
+	meteor.meteor = selectedMeteor
 	gameStateManager.sceneManager.loadedScene.add_child(meteor)
 	meteor.global_position = land_pos
-	meteor.resource = meteorPool[randi_range(0,meteorPool.size()-1)]

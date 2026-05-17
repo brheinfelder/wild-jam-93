@@ -6,6 +6,9 @@ const DECEL = 100
 
 @onready var sprite = $sprite
 
+func _ready() -> void:
+	gameStateManager.player = self
+
 func _physics_process(delta: float) -> void:
 	var lrdirection := Input.get_axis("move_left", "move_right")
 	var uddirection := Input.get_axis("move_up", "move_down")

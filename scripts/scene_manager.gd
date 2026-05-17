@@ -6,17 +6,20 @@ extends Node2D
 func _ready() -> void:
 	gameStateManager.sceneManager = self
 
-func sceneTransition(scene: PackedScene, transitionAnimation: bool = true) -> void:
+func sceneTransition(scene: Node, transitionAnimation: bool = true, freeQueue = true) -> void:
 	if transitionAnimation:
 		shade.play("show_shade")
-	var newScene = scene.instantiate()
-	newScene.process_mode = Node.PROCESS_MODE_DISABLED
-	newScene.name = "LoadedScene"
+	scene.process_mode = Node.PROCESS_MODE_DISABLED
+	scene.name = "LoadedScene"
 	if transitionAnimation:
 		await shade.animation_finished
-	add_child(newScene)
-	loadedScene.queue_free()
-	loadedScene = newScene
+	await get_tree().create_timer(1).timeout
+	add_child(scene)
+	if freeQueue:
+		loadedScene.queue_free()
+	else:
+		remove_child(loadedScene)
+	loadedScene = scene
 	if transitionAnimation:
 		shade.play("hide_shade")
 		await shade.animation_finished

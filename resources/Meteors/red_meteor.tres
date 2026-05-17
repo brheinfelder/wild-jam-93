@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="MeteorType" format=3 uid="uid://ce6hcsp7aaiqd"]
+
+[ext_resource type="Resource" uid="uid://b6hwchfcsvske" path="res://resources/inventoryResources/redMeteor.tres" id="1_2jh47"]
+[ext_resource type="Script" uid="uid://cmfe8vqsjpldo" path="res://scripts/types/meteor_type.gd" id="1_tu2nu"]
+[ext_resource type="Texture2D" uid="uid://dlj8ciklrtdhn" path="res://assets/sprites/meteorite_falling-Sheet.png" id="3_vnfjm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4r6c"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5hyb"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0qki"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieupa"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foy6x"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epl70"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhhc6"]
+atlas = ExtResource("3_vnfjm")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_diowb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4r6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5hyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0qki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieupa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foy6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epl70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhhc6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[resource]
+script = ExtResource("1_tu2nu")
+invRes = ExtResource("1_2jh47")
+sprite = SubResource("SpriteFrames_diowb")
+color = Color(0.9098039, 0.23137255, 0, 1)
+metadata/_custom_type_script = "uid://cmfe8vqsjpldo"

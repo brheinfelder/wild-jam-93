@@ -4,12 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://c1qwhhkm41r8y" path="res://scenes/van.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://tj526ajrvd0n" path="res://scenes/map.tscn" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://c6ylahyvufgjs" path="res://scripts/meteor_spawner.gd" id="3_iywne"]
-[ext_resource type="Script" uid="uid://duuwmqnvk86g3" path="res://scripts/types/inventoryResource.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://5ny4hbsev4mu" path="res://scenes/meteor.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://n5kdsr3w67t6" path="res://scenes/shop.tscn" id="4_lbhrr"]
-[ext_resource type="Resource" uid="uid://dw7s4cshy6cd0" path="res://resources/inventoryResources/greenMeteor.tres" id="5_0tnpc"]
-[ext_resource type="Resource" uid="uid://crng1d66v30xl" path="res://resources/inventoryResources/blueMeteor.tres" id="7_vtaks"]
-[ext_resource type="Resource" uid="uid://b6hwchfcsvske" path="res://resources/inventoryResources/redMeteor.tres" id="8_kvpfn"]
+[ext_resource type="Script" uid="uid://cmfe8vqsjpldo" path="res://scripts/types/meteor_type.gd" id="5_gee14"]
+[ext_resource type="Resource" uid="uid://ce6hcsp7aaiqd" path="res://resources/Meteors/red_meteor.tres" id="6_0tnpc"]
+[ext_resource type="Resource" uid="uid://ddlfpr5083wos" path="res://resources/Meteors/blue_meteor.tres" id="7_vtaks"]
+[ext_resource type="Resource" uid="uid://b0i20kso342xj" path="res://resources/Meteors/green_meteor.tres" id="8_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dv0ukdc0brmqu" path="res://scenes/splitter.tscn" id="11_kvpfn"]
 
 [sub_resource type="Environment" id="Environment_gee14"]
 background_mode = 3
@@ -81,7 +82,7 @@ script = ExtResource("1_gee14")
 [node name="Map" parent="." unique_id=48299148 instance=ExtResource("1_yqjtg")]
 
 [node name="van" parent="." unique_id=533248417 instance=ExtResource("1_uwrxv")]
-position = Vector2(14, 29)
+position = Vector2(79, 11)
 
 [node name="Camera2D" type="Camera2D" parent="van" unique_id=633105607 groups=["camera"]]
 zoom = Vector2(1.5, 1.5)
@@ -90,7 +91,7 @@ position_smoothing_enabled = true
 
 [node name="MeteorSpawner" type="Node2D" parent="van" unique_id=428932202]
 script = ExtResource("3_iywne")
-meteorPool = Array[ExtResource("4_gee14")]([ExtResource("5_0tnpc"), ExtResource("7_vtaks"), ExtResource("8_kvpfn")])
+meteorPool = Array[ExtResource("5_gee14")]([ExtResource("6_0tnpc"), ExtResource("7_vtaks"), ExtResource("8_kvpfn")])
 meteor_scene = ExtResource("4_iywne")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=325052451]
@@ -99,7 +100,6 @@ position = Vector2(2, 0)
 color = Color(0.08163542, 0.14968315, 0.32229036, 1)
 
 [node name="Shop" parent="." unique_id=1197413404 instance=ExtResource("4_lbhrr")]
-position = Vector2(-80, -24)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1373592182]
 environment = SubResource("Environment_gee14")
@@ -126,3 +126,6 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1850229984]
 libraries/ = SubResource("AnimationLibrary_vtaks")
+
+[node name="Node2D" parent="." unique_id=741331287 instance=ExtResource("11_kvpfn")]
+position = Vector2(3, -69)

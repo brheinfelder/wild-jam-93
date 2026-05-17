@@ -2,7 +2,7 @@ extends VBoxContainer
 
 @onready var button: Button = $"../Control/Button"
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
-var SHOP_SCREEN = load("uid://dhc8tgxs2o23j")
+var SHOP_SCREEN: PackedScene = load("uid://dhc8tgxs2o23j")
 
 
 func _ready() -> void:
@@ -23,5 +23,5 @@ func _ready() -> void:
 		
 
 func _on_button_pressed() -> void:
-	gameStateManager.sceneManager.sceneTransition(SHOP_SCREEN)
+	gameStateManager.sceneManager.sceneTransition(SHOP_SCREEN.instantiate())
 	pass # Replace with function body.

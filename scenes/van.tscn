@@ -62,6 +62,7 @@ radius = 48.0
 size = Vector2(56, 22)
 
 [node name="van" type="CharacterBody2D" unique_id=533248417]
+z_index = 10
 script = ExtResource("1_pyp5x")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=140449697]

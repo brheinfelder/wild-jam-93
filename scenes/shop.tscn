@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://n5kdsr3w67t6"]
+[gd_scene format=4 uid="uid://n5kdsr3w67t6"]
 
 [ext_resource type="Script" uid="uid://dvbv3einyqgo3" path="res://scenes/shop.gd" id="1_032fp"]
 [ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="2_1l46r"]
@@ -6,6 +6,26 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1l46r"]
 size = Vector2(62, 44)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l46r"]
+texture = ExtResource("2_1l46r")
+2:0/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_032fp"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1l46r")
+
+[sub_resource type="Gradient" id="Gradient_1l46r"]
+colors = PackedColorArray(1, 0.40392157, 0.0627451, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_032fp"]
+gradient = SubResource("Gradient_1l46r")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Shop" type="Node2D" unique_id=1197413404]
 script = ExtResource("1_032fp")
@@ -26,3 +46,12 @@ script = ExtResource("3_1l46r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1369297147]
 shape = SubResource("RectangleShape2D_1l46r")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1449023565]
+z_index = -2
+tile_map_data = PackedByteArray("AAD+/wEAAAAAAAIAAAD//wEAAAAAAAIAAAAAAAEAAAABAAIAAAABAAEAAAAAAAIAAAACAAEAAAAAAAIAAAD+//7/AAACAAAAAAD+////AAACAAAAAAD+/wAAAAACAAAAAAD///7/AAACAAAAAAD/////AAACAAAAAAD//wAAAAACAAAAAAAAAP7/AAACAAAAAAAAAP//AAACAAAAAAAAAAAAAAACAAAAAAABAP7/AAACAAAAAAABAP//AAACAAAAAAABAAAAAAACAAAAAAACAP7/AAACAAAAAAACAP//AAACAAAAAAACAAAAAAACAAAAAAD9////AAACAAAAAAD9/wAAAAACAAAAAAADAP//AAACAAAAAAADAAAAAAACAAAAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAACAAIAAAACAAAAAAADAAEAAAACAAAAAAD9/wEAAAACAAAAAAD///3/AAACAAAAAAAAAP3/AAACAAAAAAABAP3/AAACAAAAAAABAAMAAAACAAAAAAAAAAMAAAACAAAAAAD//wMAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_032fp")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=107488585]
+scale = Vector2(2.46875, 2.46875)
+texture = SubResource("GradientTexture2D_032fp")

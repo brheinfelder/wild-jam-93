@@ -2,6 +2,7 @@ extends Control
 
 @export var upgradeName: String #Display Name
 @export var upgradeSlug: String #Stat Name (as in game state manager)
+@export var unlockSlug: String
 @export var baseCost: int #cost of first upgrade
 @export var costScaling: int #cost per level after the first
 @export var maxLevel: int
@@ -20,6 +21,8 @@ func _process(delta: float) -> void:
 	container.modulate = style.modulate_color if button.disabled else Color.WHITE
 
 func _ready() -> void:
+	if unlockSlug and !gameStateManager.unlocks[unlockSlug]:
+		queue_free()
 	upgrade_name.text = upgradeName
 	updateButton()
 

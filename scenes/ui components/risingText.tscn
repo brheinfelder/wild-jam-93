@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c368i5hk7k3s8"]
+
+[ext_resource type="Script" uid="uid://bda67efmyeriy" path="res://scripts/ui/rising_text.gd" id="1_qxali"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kgk88"]
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 2)
+
+[node name="Control" type="Label" unique_id=547206799]
+offset_right = 36.0
+offset_bottom = 14.0
+text = "TEXT"
+label_settings = SubResource("LabelSettings_kgk88")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_qxali")
+color = Color(1, 0, 1, 1)

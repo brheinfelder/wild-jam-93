@@ -43,8 +43,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -26.0
+offset_left = -159.0
+offset_top = -45.0
+offset_right = -5.0
+offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
@@ -108,8 +110,17 @@ maxLevel = 10
 layout_mode = 2
 upgradeName = "INVENTORY SLOTS"
 upgradeSlug = "INVENTORY"
-baseCost = 1000
+baseCost = 500
 costScaling = 1000
 maxLevel = 6
+
+[node name="Chisel" parent="Shop/VBoxContainer/GridContainer" unique_id=1586672638 instance=ExtResource("1_ca2qj")]
+layout_mode = 2
+upgradeName = "SHARP CHISEL"
+upgradeSlug = "SHARP_CHISEL"
+unlockSlug = "cracking"
+baseCost = 50
+costScaling = 150
+maxLevel = 10
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

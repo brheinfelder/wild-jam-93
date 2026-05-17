@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://bhn00b01hycrg"]
+
+[ext_resource type="Texture2D" uid="uid://jgm6fy8gk6sf" path="res://assets/sprites/glowing_meteorite-Sheet.png" id="1_8gqc7"]
+[ext_resource type="Script" uid="uid://dma2gwsxbusxe" path="res://scripts/pickup.gd" id="1_8i0xm"]
+[ext_resource type="Texture2D" uid="uid://cjq33l2ywr57e" path="res://assets/sprites/tileset.png" id="2_n3sop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bn2c"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6tvj"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q41ky"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwsl4"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f0y3"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt05d"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sjqo"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfcjt"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8irih"]
+atlas = ExtResource("1_8gqc7")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q01i1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bn2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6tvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q41ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwsl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f0y3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt05d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sjqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfcjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8irih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n3sop"]
+radius = 13.038404
+
+[sub_resource type="Gradient" id="Gradient_8i0xm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_guncg"]
+gradient = SubResource("Gradient_8i0xm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_8i0xm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_guncg"]
+resource_name = "flash"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5, -0.0625, -0.125, 0.0625, 0.125, 1, -0.0625, 0.125, 0.0625, -0.125),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5, -0.0625, -0.125, 0.0625, 0.125, 1, -0.0625, 0.125, 0.0625, -0.125),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s6gig"]
+_data = {
+&"RESET": SubResource("Animation_8i0xm"),
+&"flash": SubResource("Animation_guncg")
+}
+
+[node name="Node2D" type="Node2D" unique_id=738111856]
+script = ExtResource("1_8i0xm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1601881404]
+sprite_frames = SubResource("SpriteFrames_q01i1")
+autoplay = "default"
+frame_progress = 0.27879474
+
+[node name="crater" type="Sprite2D" parent="." unique_id=28916505]
+modulate = Color(0.9330968, 0.33906618, 0, 1)
+position = Vector2(1, -1.9999998)
+scale = Vector2(2.125, 2.1249998)
+texture = ExtResource("2_n3sop")
+region_enabled = true
+region_rect = Rect2(112, 16, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=199957202 groups=["pickup"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=48100448]
+visible = false
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_n3sop")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=266242879]
+texture = SubResource("GradientTexture2D_guncg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=523140417]
+libraries/ = SubResource("AnimationLibrary_s6gig")
